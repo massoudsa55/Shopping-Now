@@ -12,27 +12,27 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   );
 }
 
-// style for font light
+// light style
 TextStyle getLightStyle(
         {double fontSize = FontSize.s12, required Color color}) =>
     _getTextStyle(fontSize, FontWeightManager.light, color);
 
-// style for font reqular
-TextStyle getReqularStyle(
+// regular style
+TextStyle getRegularStyle(
         {double fontSize = FontSize.s14, required Color color}) =>
-    _getTextStyle(fontSize, FontWeightManager.reqular, color);
+    _getTextStyle(fontSize, FontWeightManager.regular, color);
 
-// style for font medium
+// medium style
 TextStyle getMediumStyle(
         {double fontSize = FontSize.s16, required Color color}) =>
     _getTextStyle(fontSize, FontWeightManager.medium, color);
 
-// style for font semiBold
+// semiBold style
 TextStyle getSemiBoldStyle(
         {double fontSize = FontSize.s18, required Color color}) =>
     _getTextStyle(fontSize, FontWeightManager.semiBold, color);
 
-// style for font bold
+// bold style
 TextStyle getBoldStyle(
         {double fontSize = FontSize.s20, required Color color}) =>
     _getTextStyle(fontSize, FontWeightManager.bold, color);

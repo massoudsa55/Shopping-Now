@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'resources/routes/router_manager.dart';
+import 'themes/theme_manager.dart';
+
 // ignore: must_be_immutable
 class MyApp extends StatefulWidget {
   // named constructor
@@ -18,6 +21,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: getApplicationTheme(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+    );
   }
 }
