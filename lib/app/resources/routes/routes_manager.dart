@@ -5,4 +5,5 @@ class AppRoutes {
   static const String forgotPassworedRoute = '/forgotPasswored';
   static const String mainRoute = '/main';
   static const String storeDetailsRoute = '/storeDetails';
+  static const String onBoardingRoute = '/onBoarding';
 }
