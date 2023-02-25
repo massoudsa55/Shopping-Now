@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 
-import '../../app/constants/api_constants.dart';
+import '../../app/constants/app_constants.dart';
 import '../response/responses.dart';
 part 'app_api.g.dart';
 
-@RestApi(baseUrl: ApiConstants.baseUrl)
+@RestApi(baseUrl: AppConstants.baseUrl)
 abstract class AppServiceClient {
   factory AppServiceClient(Dio dio, {String baseUrl}) = _AppServiceClient;
 
