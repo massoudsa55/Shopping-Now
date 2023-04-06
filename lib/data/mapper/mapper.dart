@@ -1,6 +1,6 @@
 import 'package:shopping_now/app/extensions.dart';
 
-import '../../app/constants/app_constants.dart';
+import '../../app/app_constants.dart';
 import '../../domain/models.dart';
 import '../response/responses.dart';
 

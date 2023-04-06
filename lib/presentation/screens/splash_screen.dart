@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../app/constants/app_constants.dart';
+import '../../app/app_constants.dart';
 import '../../app/resources/assets/image_assets.dart';
 import '../../app/resources/colors/color_manager.dart';
 import '../../app/resources/routes/routes_manager.dart';
