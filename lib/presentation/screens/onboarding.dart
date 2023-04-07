@@ -53,6 +53,8 @@ class _OnBoardingState extends State<OnBoarding> {
         itemBuilder: (context, index) => Container(
           padding: const EdgeInsets.symmetric(
               vertical: AppSize.s10, horizontal: AppSize.s10),
+          margin: const EdgeInsets.symmetric(
+              vertical: AppSize.s10, horizontal: AppSize.s10),
           child: Column(
             children: [
               // SvgPicture.assets(""),
