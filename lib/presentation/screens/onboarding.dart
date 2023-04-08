@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -35,10 +33,12 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.lightPrimary,
+      backgroundColor: ColorManager.white,
       appBar: AppBar(
+        backgroundColor: ColorManager.white,
+        elevation: 0.0,
         systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: ColorManager.white,
+          statusBarColor: ColorManager.darkGrey,
           statusBarBrightness: Brightness.dark,
         ),
       ),
@@ -50,20 +50,43 @@ class _OnBoardingState extends State<OnBoarding> {
             _currentIndex = value;
           });
         },
-        itemBuilder: (context, index) => Container(
-          padding: const EdgeInsets.symmetric(
-              vertical: AppSize.s10, horizontal: AppSize.s10),
-          margin: const EdgeInsets.symmetric(
-              vertical: AppSize.s10, horizontal: AppSize.s10),
-          child: Column(
+        itemBuilder: (context, index) =>
+            OnBoardingPage(onBoardingModel: _list[index]),
+      ),
+    );
+  }
+}
+
+class OnBoardingPage extends StatelessWidget {
+  const OnBoardingPage({
+    Key? key,
+    required this.onBoardingModel,
+  }) : super(key: key);
+
+  final OnBoardingModel onBoardingModel;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      padding: const EdgeInsets.symmetric(
+          vertical: AppSize.s10, horizontal: AppSize.s10),
+      margin: const EdgeInsets.symmetric(
+          vertical: AppSize.s10, horizontal: AppSize.s10),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Column(
             children: [
-              // SvgPicture.assets(""),
-              SvgPicture.asset(_list[index].image),
+              SizedBox(
+                  width: AppSize.s20 * 15,
+                  height: AppSize.s20 * 15,
+                  child: SvgPicture.asset(onBoardingModel.image)),
               const SizedBox(height: AppSize.s20),
               Padding(
                 padding: const EdgeInsets.all(AppSize.s8),
                 child: Text(
-                  _list[index].title,
+                  onBoardingModel.title,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
@@ -71,14 +94,31 @@ class _OnBoardingState extends State<OnBoarding> {
               Padding(
                 padding: const EdgeInsets.all(AppSize.s8),
                 child: Text(
-                  _list[index].subTitle,
+                  onBoardingModel.subTitle,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
             ],
           ),
-        ),
+          Positioned(
+            bottom: 0,
+            child: SizedBox(
+              width: size.width * 0.7,
+              height: size.height * 0.05,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Next",
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .copyWith(color: ColorManager.white),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../presentation/screens/splash_screen.dart';
+import '../../../presentation/screens/onboarding.dart';
 import 'routes_manager.dart';
 
 class AppRouter {
@@ -8,6 +9,8 @@ class AppRouter {
     switch (settings.name) {
       case AppRoutes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
+      case AppRoutes.onBoardingRoute:
+        return MaterialPageRoute(builder: (_) => const OnBoarding());
       default:
         return unDefinedRoute();
     }
