@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app_strings.dart';
 import 'resources/routes/router_manager.dart';
 import 'themes/theme_manager.dart';
 
@@ -23,6 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: AppStrings.appName,
       theme: getApplicationTheme(),
       onGenerateRoute: AppRouter.onGenerateRoute,
     );

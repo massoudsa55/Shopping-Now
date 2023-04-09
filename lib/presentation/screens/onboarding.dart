@@ -79,9 +79,11 @@ class OnBoardingPage extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                  width: AppSize.s20 * 15,
-                  height: AppSize.s20 * 15,
-                  child: SvgPicture.asset(onBoardingModel.image)),
+                width: AppSize.s20 * 15,
+                height: AppSize.s20 * 15,
+                child: SvgPicture.asset(onBoardingModel.image),
+                // child: Image.asset(onBoardingModel.image),
+              ),
               const SizedBox(height: AppSize.s20),
               Padding(
                 padding: const EdgeInsets.all(AppSize.s8),

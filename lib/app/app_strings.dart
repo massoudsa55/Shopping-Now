@@ -1,14 +1,15 @@
 class AppStrings {
+  static const String appName = "Shopping Now";
   static const noRouteFound = "noRouteFound";
-  static const onBoardingTitle1 = "on_boarding_title1";
-  static const onBoardingTitle2 = "on_boarding_title2";
-  static const onBoardingTitle3 = "on_boarding_title3";
-  static const onBoardingTitle4 = "on_boarding_title4";
+  static const onBoardingTitle1 = "OnBoarding Title one";
+  static const onBoardingTitle2 = "OnBoarding Title Tow";
+  static const onBoardingTitle3 = "OnBoarding Title Three";
+  static const onBoardingTitle4 = "OnBoarding Title For";
 
-  static const onBoardingSubTitle1 = "on_boarding_desc1";
-  static const onBoardingSubTitle2 = "on_boarding_desc2";
-  static const onBoardingSubTitle3 = "on_boarding_desc3";
-  static const onBoardingSubTitle4 = "on_boarding_desc4";
+  static const onBoardingSubTitle1 = "OnBoarding Decription One ";
+  static const onBoardingSubTitle2 = "OnBoarding Decription Tow";
+  static const onBoardingSubTitle3 = "OnBoarding Decription Three";
+  static const onBoardingSubTitle4 = "OnBoarding Decription For";
   static const skip = "skip";
   static const username = "username_hint";
   static const password = "password_hint";
