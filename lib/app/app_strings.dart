@@ -11,6 +11,8 @@ class AppStrings {
   static const onBoardingSubTitle3 = "OnBoarding Decription Three";
   static const onBoardingSubTitle4 = "OnBoarding Decription For";
   static const skip = "skip";
+  static const next = "Next";
+  static const getStarted = "Get Started";
   static const username = "username_hint";
   static const password = "password_hint";
   static const usernameError = "username_error";

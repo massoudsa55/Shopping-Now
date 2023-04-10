@@ -13,8 +13,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   dio: ^5.0.0
+  dots_indicator: ^2.1.0
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.7.0
   flutter_svg: ^1.0.4
   internet_connection_checker: ^1.0.0+1
   json_annotation: ^4.8.0

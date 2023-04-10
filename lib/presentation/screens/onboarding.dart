@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,14 +21,30 @@ class _OnBoardingState extends State<OnBoarding> {
   int _currentIndex = 0;
 
   List<OnBoardingModel> _getOnBoardingList() => [
-        OnBoardingModel(AppStrings.onBoardingTitle1,
-            AppStrings.onBoardingSubTitle1, ImageAssets.onBoardingLogo1),
-        OnBoardingModel(AppStrings.onBoardingTitle2,
-            AppStrings.onBoardingSubTitle2, ImageAssets.onBoardingLogo2),
-        OnBoardingModel(AppStrings.onBoardingTitle3,
-            AppStrings.onBoardingSubTitle3, ImageAssets.onBoardingLogo3),
-        OnBoardingModel(AppStrings.onBoardingTitle4,
-            AppStrings.onBoardingSubTitle4, ImageAssets.onBoardingLogo4),
+        OnBoardingModel(
+          AppStrings.onBoardingTitle1,
+          AppStrings.onBoardingSubTitle1,
+          ImageAssets.onBoardingLogo1,
+          AppStrings.next,
+        ),
+        OnBoardingModel(
+          AppStrings.onBoardingTitle2,
+          AppStrings.onBoardingSubTitle2,
+          ImageAssets.onBoardingLogo2,
+          AppStrings.next,
+        ),
+        OnBoardingModel(
+          AppStrings.onBoardingTitle3,
+          AppStrings.onBoardingSubTitle3,
+          ImageAssets.onBoardingLogo3,
+          AppStrings.next,
+        ),
+        OnBoardingModel(
+          AppStrings.onBoardingTitle4,
+          AppStrings.onBoardingSubTitle4,
+          ImageAssets.onBoardingLogo4,
+          AppStrings.getStarted,
+        ),
       ];
 
   @override
@@ -79,8 +96,8 @@ class OnBoardingPage extends StatelessWidget {
           Column(
             children: [
               SizedBox(
-                width: AppSize.s20 * 15,
-                height: AppSize.s20 * 15,
+                // width: AppSize.s20 * 15,
+                height: size.height * 0.35,
                 child: SvgPicture.asset(onBoardingModel.image),
                 // child: Image.asset(onBoardingModel.image),
               ),
@@ -105,19 +122,34 @@ class OnBoardingPage extends StatelessWidget {
           ),
           Positioned(
             bottom: 0,
-            child: SizedBox(
-              width: size.width * 0.7,
-              height: size.height * 0.05,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  "Next",
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineSmall!
-                      .copyWith(color: ColorManager.white),
+            child: Column(
+              children: [
+                DotsIndicator(
+                  dotsCount: 4,
+                  position: 0,
+                  decorator: DotsDecorator(
+                    size: const Size.square(8.0),
+                    activeSize: const Size(8.0, 20.0),
+                    activeShape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0)),
+                  ),
                 ),
-              ),
+                const SizedBox(height: AppSize.s20 * 2),
+                SizedBox(
+                  width: size.width * 0.7,
+                  height: size.height * 0.05,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text(
+                      onBoardingModel.txtButton,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(color: ColorManager.white),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -130,6 +162,7 @@ class OnBoardingModel {
   final String title;
   final String subTitle;
   final String image;
+  final String txtButton;
 
-  OnBoardingModel(this.title, this.subTitle, this.image);
+  OnBoardingModel(this.title, this.subTitle, this.image, this.txtButton);
 }
