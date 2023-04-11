@@ -27,11 +27,12 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context , child) => MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: AppStrings.appName,
-      theme: getApplicationTheme(),
-      onGenerateRoute: AppRouter.onGenerateRoute,
-    ),);
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: AppStrings.appName,
+        theme: getApplicationTheme(),
+        onGenerateRoute: AppRouter.onGenerateRoute,
+      ),
+    );
   }
 }

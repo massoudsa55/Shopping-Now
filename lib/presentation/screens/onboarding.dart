@@ -49,6 +49,7 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: ColorManager.white,
       appBar: AppBar(
@@ -59,16 +60,56 @@ class _OnBoardingState extends State<OnBoarding> {
           statusBarBrightness: Brightness.dark,
         ),
       ),
-      body: PageView.builder(
-        controller: _pageController,
-        itemCount: _list.length,
-        onPageChanged: (value) {
-          setState(() {
-            _currentIndex = value;
-          });
-        },
-        itemBuilder: (context, index) =>
-            OnBoardingPage(onBoardingModel: _list[index]),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          PageView.builder(
+            controller: _pageController,
+            itemCount: _list.length,
+            onPageChanged: (value) {
+              setState(() {
+                _currentIndex = value;
+              });
+            },
+            itemBuilder: (context, index) =>
+                OnBoardingPage(onBoardingModel: _list[index]),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: AppSize.s20),
+              child: Column(
+                children: [
+                  DotsIndicator(
+                    dotsCount: 4,
+                    position: _currentIndex.toDouble(),
+                    decorator: DotsDecorator(
+                      size: const Size.square(AppSize.s8),
+                      activeSize: const Size(AppSize.s8, AppSize.s20),
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(AppSize.s4)),
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.05),
+                  SizedBox(
+                    width: size.width * 0.7,
+                    height: size.height * 0.06,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        _list[_currentIndex].txtButton,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .copyWith(color: ColorManager.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -90,66 +131,29 @@ class OnBoardingPage extends StatelessWidget {
           vertical: AppSize.s10, horizontal: AppSize.s10),
       margin: const EdgeInsets.symmetric(
           vertical: AppSize.s10, horizontal: AppSize.s10),
-      child: Stack(
-        alignment: Alignment.center,
+      child: Column(
         children: [
-          Column(
-            children: [
-              SizedBox(
-                // width: AppSize.s20 * 15,
-                height: size.height * 0.35,
-                child: SvgPicture.asset(onBoardingModel.image),
-                // child: Image.asset(onBoardingModel.image),
-              ),
-              const SizedBox(height: AppSize.s20),
-              Padding(
-                padding: const EdgeInsets.all(AppSize.s8),
-                child: Text(
-                  onBoardingModel.title,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.displayLarge,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(AppSize.s8),
-                child: Text(
-                  onBoardingModel.subTitle,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-              ),
-            ],
+          SizedBox(
+            // width: AppSize.s20 * 15,
+            height: size.height * 0.35,
+            child: SvgPicture.asset(onBoardingModel.image),
+            // child: Image.asset(onBoardingModel.image),
           ),
-          Positioned(
-            bottom: 0,
-            child: Column(
-              children: [
-                DotsIndicator(
-                  dotsCount: 4,
-                  position: 0,
-                  decorator: DotsDecorator(
-                    size: const Size.square(8.0),
-                    activeSize: const Size(8.0, 20.0),
-                    activeShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0)),
-                  ),
-                ),
-                const SizedBox(height: AppSize.s20 * 2),
-                SizedBox(
-                  width: size.width * 0.7,
-                  height: size.height * 0.05,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      onBoardingModel.txtButton,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(color: ColorManager.white),
-                    ),
-                  ),
-                ),
-              ],
+          const SizedBox(height: AppSize.s20),
+          Padding(
+            padding: const EdgeInsets.all(AppSize.s8),
+            child: Text(
+              onBoardingModel.title,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.displayLarge,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(AppSize.s8),
+            child: Text(
+              onBoardingModel.subTitle,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
         ],
