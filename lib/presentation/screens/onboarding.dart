@@ -47,6 +47,15 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ];
 
+  next() {
+    _currentIndex++;
+    if (_currentIndex > _list.length - 1) {
+    } else {
+      _pageController.animateToPage(_currentIndex,
+          duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -81,7 +90,7 @@ class _OnBoardingState extends State<OnBoarding> {
               child: Column(
                 children: [
                   DotsIndicator(
-                    dotsCount: 4,
+                    dotsCount: _list.length,
                     position: _currentIndex.toDouble(),
                     decorator: DotsDecorator(
                       size: const Size.square(AppSize.s8),
@@ -95,7 +104,11 @@ class _OnBoardingState extends State<OnBoarding> {
                     width: size.width * 0.7,
                     height: size.height * 0.06,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          next();
+                        });
+                      },
                       child: Text(
                         _list[_currentIndex].txtButton,
                         style: Theme.of(context)
