@@ -50,6 +50,7 @@ class _OnBoardingState extends State<OnBoarding> {
   next() {
     _currentIndex++;
     if (_currentIndex > _list.length - 1) {
+      _currentIndex = 0;
     } else {
       _pageController.animateToPage(_currentIndex,
           duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
@@ -89,14 +90,19 @@ class _OnBoardingState extends State<OnBoarding> {
               padding: const EdgeInsets.symmetric(vertical: AppSize.s20),
               child: Column(
                 children: [
-                  DotsIndicator(
-                    dotsCount: _list.length,
-                    position: _currentIndex.toDouble(),
-                    decorator: DotsDecorator(
-                      size: const Size.square(AppSize.s8),
-                      activeSize: const Size(AppSize.s8, AppSize.s20),
-                      activeShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSize.s4)),
+                  AnimatedSlide(
+                    offset: const Offset(0, 0),
+                    duration: const Duration(milliseconds: 900),
+                    curve: Curves.easeInQuart,
+                    child: DotsIndicator(
+                      dotsCount: _list.length,
+                      position: _currentIndex.toDouble(),
+                      decorator: DotsDecorator(
+                        size: const Size.square(AppSize.s8),
+                        activeSize: const Size(AppSize.s8, AppSize.s20),
+                        activeShape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(AppSize.s4)),
+                      ),
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),

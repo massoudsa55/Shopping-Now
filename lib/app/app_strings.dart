@@ -10,7 +10,6 @@ class AppStrings {
   static const onBoardingSubTitle2 = "OnBoarding Decription Tow";
   static const onBoardingSubTitle3 = "OnBoarding Decription Three";
   static const onBoardingSubTitle4 = "OnBoarding Decription For";
-  static const skip = "skip";
   static const next = "Next";
   static const getStarted = "Get Started";
   static const username = "username_hint";
