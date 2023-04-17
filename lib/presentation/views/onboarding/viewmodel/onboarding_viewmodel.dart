@@ -24,6 +24,7 @@ class OnBoardingViewModel extends BaseViewModel
   next() {
     _currentIndex++;
     if (_currentIndex > _list.length - 1) {
+      // TODO: implement code for navigate to login screen
       _currentIndex = 0;
     } else {
       _pageController.animateToPage(_currentIndex,

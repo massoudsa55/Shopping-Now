@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../app/app_strings.dart';
-import '../../app/resources/assets/image_assets.dart';
-import '../../app/resources/colors/color_manager.dart';
-import '../../app/resources/values/app_size.dart';
+import '../../../../app/app_strings.dart';
+import '../../../../app/resources/assets/image_assets.dart';
+import '../../../../app/resources/colors/color_manager.dart';
+import '../../../../app/resources/values/app_size.dart';
+import '../../../../domain/models.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -90,19 +91,14 @@ class _OnBoardingState extends State<OnBoarding> {
               padding: const EdgeInsets.symmetric(vertical: AppSize.s20),
               child: Column(
                 children: [
-                  AnimatedSlide(
-                    offset: const Offset(0, 0),
-                    duration: const Duration(milliseconds: 900),
-                    curve: Curves.easeInQuart,
-                    child: DotsIndicator(
-                      dotsCount: _list.length,
-                      position: _currentIndex.toDouble(),
-                      decorator: DotsDecorator(
-                        size: const Size.square(AppSize.s8),
-                        activeSize: const Size(AppSize.s8, AppSize.s20),
-                        activeShape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppSize.s4)),
-                      ),
+                  DotsIndicator(
+                    dotsCount: _list.length,
+                    position: _currentIndex.toDouble(),
+                    decorator: DotsDecorator(
+                      size: const Size.square(AppSize.s8),
+                      activeSize: const Size(AppSize.s8, AppSize.s20),
+                      activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(AppSize.s4)),
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),
@@ -179,13 +175,4 @@ class OnBoardingPage extends StatelessWidget {
       ),
     );
   }
-}
-
-class OnBoardingModel {
-  final String title;
-  final String subTitle;
-  final String image;
-  final String txtButton;
-
-  OnBoardingModel(this.title, this.subTitle, this.image, this.txtButton);
 }

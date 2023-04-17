@@ -1,3 +1,22 @@
+import 'package:equatable/equatable.dart';
+
+class OnBoardingModel extends Equatable {
+  final String title;
+  final String subTitle;
+  final String image;
+  final String txtButton;
+
+  const OnBoardingModel(this.title, this.subTitle, this.image, this.txtButton);
+
+  @override
+  List<Object?> get props => [
+        title,
+        subTitle,
+        image,
+        txtButton,
+      ];
+}
+
 class Customer {
   String id;
   String name;
