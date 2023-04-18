@@ -6,4 +6,5 @@ class ImageAssets {
   static String onBoardingLogo2 = "$baseImages/logo_onboarding2.svg";
   static String onBoardingLogo3 = "$baseImages/logo_onboarding3.svg";
   static String onBoardingLogo4 = "$baseImages/logo_onboarding4.svg";
+  static String loginLogo = "$baseImages/login_logo.svg";
 }
