@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shopping_now/app/resources/colors/color_manager.dart';
 
 import '../../../../../app/resources/assets/image_assets.dart';
 import '../../../../../app/resources/values/app_size.dart';
@@ -14,6 +17,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +26,12 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SvgPicture.asset(
-              ImageAssets.loginLogo,
-              fit: BoxFit.cover,
+            SizedBox(
+              height: 300.h,
+              child: SvgPicture.asset(
+                ImageAssets.loginLogo,
+                fit: BoxFit.contain,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(AppSize.s20),
@@ -50,13 +57,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: size.height > 700 ? size.height * 0.1 : AppSize.s20,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        // Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,ModalRoute.withName(logInScreenRoute));
-                      }
-                    },
-                    child: const Text("Log in"),
+                  SizedBox(
+                    height: 40.h,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          // Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,ModalRoute.withName(logInScreenRoute));
+                          await _auth
+                              .createUserWithEmailAndPassword(
+                                  email: "massoudsa55@gmail.com",
+                                  password: "password")
+                              .then((value) => print(value));
+                        }
+                      },
+                      child: const Text("Log in"),
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

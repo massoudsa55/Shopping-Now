@@ -1,11 +1,14 @@
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shopping_now/presentation/views/screens/auth/login/login_screen.dart';
 
 import '../../../../app/app_strings.dart';
 import '../../../../app/resources/assets/image_assets.dart';
 import '../../../../app/resources/colors/color_manager.dart';
+import '../../../../app/resources/routes/routes_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models.dart';
 
@@ -18,6 +21,7 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   late final List<OnBoardingModel> _list = _getOnBoardingList();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final PageController _pageController = PageController();
   int _currentIndex = 0;
 
@@ -48,9 +52,16 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ];
 
-  next() {
+  next() async {
     _currentIndex++;
     if (_currentIndex > _list.length - 1) {
+      // auth
+      // await _auth
+      //     .createUserWithEmailAndPassword(
+      //         email: "massoudsa55@gmail.com", password: "password")
+      //     .then((value) => print(value));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
       _currentIndex = 0;
     } else {
       _pageController.animateToPage(_currentIndex,

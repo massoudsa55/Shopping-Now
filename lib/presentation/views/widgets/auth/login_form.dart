@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../app/resources/assets/icon_assets.dart';
 import '../../../../app/resources/values/app_size.dart';
 
 class LogInForm extends StatelessWidget {
