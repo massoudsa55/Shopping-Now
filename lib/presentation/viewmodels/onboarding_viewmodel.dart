@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/app_strings.dart';
 import '../../app/resources/assets/image_assets.dart';
-import '../../domain/models.dart';
+import '../../domain/models/models.dart';
 import '../bases/base_viewmodel.dart';
 
 abstract class OnBoardingViewModelIputs {

@@ -3,14 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shopping_now/presentation/views/screens/auth/login/login_screen.dart';
 
 import '../../../../app/app_strings.dart';
 import '../../../../app/resources/assets/image_assets.dart';
 import '../../../../app/resources/colors/color_manager.dart';
-import '../../../../app/resources/routes/routes_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
-import '../../../../domain/models.dart';
+import '../../../../domain/models/models.dart';
+import '../start_screen.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -60,10 +59,13 @@ class _OnBoardingState extends State<OnBoarding> {
       //     .createUserWithEmailAndPassword(
       //         email: "massoudsa55@gmail.com", password: "password")
       //     .then((value) => print(value));
+      print("get");
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
+          MaterialPageRoute(builder: (context) => const StartScreen()));
+      print("started");
       _currentIndex = 0;
     } else {
+      print("next");
       _pageController.animateToPage(_currentIndex,
           duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
     }

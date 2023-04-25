@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../presentation/views/screens/auth/login/login_screen.dart';
+import '../../../presentation/views/screens/home/home_screen.dart';
 import '../../../presentation/views/screens/splashscreen/splash_screen.dart';
 import '../../../presentation/views/screens/onboarding/onboarding_view.dart';
 import 'routes_manager.dart';
@@ -14,6 +15,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBoarding());
       case AppRoutes.loginScreenRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case AppRoutes.homeScreenRoute:
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       default:
         return unDefinedRoute();
     }

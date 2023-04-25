@@ -2,8 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shopping_now/app/resources/colors/color_manager.dart';
 
+import '../../../../../app/resources/routes/routes_manager.dart';
+import "../../home/home_screen.dart";
 import '../../../../../app/resources/assets/image_assets.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../widgets/auth/login_form.dart';
@@ -22,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    print("fff");
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -69,6 +71,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   email: "massoudsa55@gmail.com",
                                   password: "password")
                               .then((value) => print(value));
+                          print("fff");
+                          // ignore: use_build_context_synchronously
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
                         }
                       },
                       child: const Text("Log in"),

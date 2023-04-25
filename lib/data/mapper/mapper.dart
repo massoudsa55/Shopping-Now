@@ -1,7 +1,7 @@
 import 'package:shopping_now/app/extensions.dart';
 
 import '../../app/app_constants.dart';
-import '../../domain/models.dart';
+import '../../domain/models/models.dart';
 import '../response/responses.dart';
 
 extension CustomerResponseMapper on CustomerResponse? {
