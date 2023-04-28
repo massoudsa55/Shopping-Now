@@ -17,6 +17,18 @@ class OnBoardingModel extends Equatable {
       ];
 }
 
+class SliderViewObject extends Equatable {
+  final OnBoardingModel onBoardingModel;
+  final int numOfSlides;
+  final int currentIndex;
+
+  const SliderViewObject(
+      this.onBoardingModel, this.numOfSlides, this.currentIndex);
+
+  @override
+  List<Object?> get props => [onBoardingModel, numOfSlides, currentIndex];
+}
+
 class Customer {
   String id;
   String name;

@@ -9,6 +9,7 @@ import '../../../../app/resources/assets/image_assets.dart';
 import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/models.dart';
+import '../../../viewmodels/onboarding_viewmodel.dart';
 import '../start_screen.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -19,39 +20,11 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-  late final List<OnBoardingModel> _list = _getOnBoardingList();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final PageController _pageController = PageController();
-  int _currentIndex = 0;
+  final OnBoardingViewModel _viewModel = OnBoardingViewModel();
 
-  List<OnBoardingModel> _getOnBoardingList() => [
-        OnBoardingModel(
-          AppStrings.onBoardingTitle1,
-          AppStrings.onBoardingSubTitle1,
-          ImageAssets.onBoardingLogo1,
-          AppStrings.next,
-        ),
-        OnBoardingModel(
-          AppStrings.onBoardingTitle2,
-          AppStrings.onBoardingSubTitle2,
-          ImageAssets.onBoardingLogo2,
-          AppStrings.next,
-        ),
-        OnBoardingModel(
-          AppStrings.onBoardingTitle3,
-          AppStrings.onBoardingSubTitle3,
-          ImageAssets.onBoardingLogo3,
-          AppStrings.next,
-        ),
-        OnBoardingModel(
-          AppStrings.onBoardingTitle4,
-          AppStrings.onBoardingSubTitle4,
-          ImageAssets.onBoardingLogo4,
-          AppStrings.getStarted,
-        ),
-      ];
-
-  next() async {
+  /*next() async {
     _currentIndex++;
     if (_currentIndex > _list.length - 1) {
       // auth
@@ -69,11 +42,29 @@ class _OnBoardingState extends State<OnBoarding> {
       _pageController.animateToPage(_currentIndex,
           duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
     }
+  }*/
+
+  _startOnBoardingViewModel() {
+    _viewModel.start();
+  }
+
+  @override
+  void initState() {
+    _startOnBoardingViewModel();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    return StreamBuilder<SliderViewObject>(
+      stream: _viewModel.outputsOnBoardingModel,
+      builder: (context, snapshot) => getOnBoardingScreen(snapshot.data),
+    );
+  }
+
+  Widget getOnBoardingScreen(SliderViewObject? onBoardingModel) {
     Size size = MediaQuery.of(context).size;
+    if (onBoardingModel == null) return Container();
     return Scaffold(
       backgroundColor: ColorManager.white,
       appBar: AppBar(
@@ -89,14 +80,12 @@ class _OnBoardingState extends State<OnBoarding> {
         children: [
           PageView.builder(
             controller: _pageController,
-            itemCount: _list.length,
-            onPageChanged: (value) {
-              setState(() {
-                _currentIndex = value;
-              });
+            itemCount: onBoardingModel.numOfSlides,
+            onPageChanged: (index) {
+              _viewModel.onPageChanged(index);
             },
             itemBuilder: (context, index) =>
-                OnBoardingPage(onBoardingModel: _list[index]),
+                OnBoardingPage(onBoardingModel: _viewModel.list[index]),
           ),
           Positioned(
             bottom: 0,
@@ -105,8 +94,8 @@ class _OnBoardingState extends State<OnBoarding> {
               child: Column(
                 children: [
                   DotsIndicator(
-                    dotsCount: _list.length,
-                    position: _currentIndex.toDouble(),
+                    dotsCount: onBoardingModel.numOfSlides,
+                    position: onBoardingModel.currentIndex.toDouble(),
                     decorator: DotsDecorator(
                       size: const Size.square(AppSize.s8),
                       activeSize: const Size(AppSize.s8, AppSize.s20),
@@ -120,12 +109,10 @@ class _OnBoardingState extends State<OnBoarding> {
                     height: size.height * 0.06,
                     child: ElevatedButton(
                       onPressed: () {
-                        setState(() {
-                          next();
-                        });
+                        _viewModel.next();
                       },
                       child: Text(
-                        _list[_currentIndex].txtButton,
+                        onBoardingModel.onBoardingModel.txtButton,
                         style: Theme.of(context)
                             .textTheme
                             .headlineSmall!
@@ -140,6 +127,12 @@ class _OnBoardingState extends State<OnBoarding> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _viewModel.dispose();
+    super.dispose();
   }
 }
 

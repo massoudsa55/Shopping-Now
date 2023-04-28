@@ -9,24 +9,24 @@ import '../bases/base_viewmodel.dart';
 
 abstract class OnBoardingViewModelIputs {
   next();
+  onPageChanged(int index);
   Sink get inputOnBoardingModel;
 }
 
 abstract class OnBoardingViewModelOutputs {
-  Stream<OnBoardingModel> get outputsOnBoardingModel;
+  Stream<SliderViewObject> get outputsOnBoardingModel;
 }
 
 class OnBoardingViewModel extends BaseViewModel
     with OnBoardingViewModelIputs, OnBoardingViewModelOutputs {
-  late final List<OnBoardingModel> _list;
+  late final List<OnBoardingModel> list;
   late final PageController _pageController;
-  late final StreamController<OnBoardingModel> _streamController;
+  late final StreamController _streamController;
   int _currentIndex = 0;
 
   @override
   next() {
-    _currentIndex++;
-    if (_currentIndex > _list.length - 1) {
+    if (_currentIndex > list.length - 1) {
       // TODO: implement code for navigate to login screen
       // Navigator.;
       _currentIndex = 0;
@@ -44,17 +44,28 @@ class OnBoardingViewModel extends BaseViewModel
 
   @override
   void start() {
-    _list = _getOnBoardingList();
+    list = _getOnBoardingList();
     _pageController = PageController();
-    _streamController = StreamController<OnBoardingModel>();
+    _streamController = StreamController<SliderViewObject>();
   }
 
   @override
   Sink get inputOnBoardingModel => _streamController.sink;
 
   @override
-  Stream<OnBoardingModel> get outputsOnBoardingModel =>
+  Stream<SliderViewObject> get outputsOnBoardingModel =>
       _streamController.stream.map((onBoardingModel) => onBoardingModel);
+
+  @override
+  onPageChanged(int index) {
+    _currentIndex = index;
+    _postDataToView(index);
+  }
+
+  // onboarding private functions
+  void _postDataToView(int index) {
+    _streamController.add(_getOnBoardingList()[index]);
+  }
 }
 
 // use data statics
