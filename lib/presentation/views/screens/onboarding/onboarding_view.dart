@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../app/app_strings.dart';
-import '../../../../app/resources/assets/image_assets.dart';
+import '../../../../app/app_constants.dart';
+import '../../../../app/app_preference.dart';
+import '../../../../app/dependency_injection.dart';
 import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/models.dart';
 import '../../../viewmodels/onboarding_viewmodel.dart';
-import '../start_screen.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -20,31 +20,13 @@ class OnBoarding extends StatefulWidget {
 }
 
 class _OnBoardingState extends State<OnBoarding> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
   final PageController _pageController = PageController();
   final OnBoardingViewModel _viewModel = OnBoardingViewModel();
-
-  /*next() async {
-    _currentIndex++;
-    if (_currentIndex > _list.length - 1) {
-      // auth
-      // await _auth
-      //     .createUserWithEmailAndPassword(
-      //         email: "massoudsa55@gmail.com", password: "password")
-      //     .then((value) => print(value));
-      print("get");
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const StartScreen()));
-      print("started");
-      _currentIndex = 0;
-    } else {
-      print("next");
-      _pageController.animateToPage(_currentIndex,
-          duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
-    }
-  }*/
+  // final AppPreferences _appPreferences = instance<AppPreferences>();
 
   _startOnBoardingViewModel() {
+    // _appPreferences.setOnBoardingScreenViewed();
     _viewModel.start();
   }
 
@@ -62,9 +44,11 @@ class _OnBoardingState extends State<OnBoarding> {
     );
   }
 
-  Widget getOnBoardingScreen(SliderViewObject? onBoardingModel) {
+  Widget getOnBoardingScreen(SliderViewObject? sliderViewObject) {
     Size size = MediaQuery.of(context).size;
-    if (onBoardingModel == null) return Container();
+    if (sliderViewObject == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
     return Scaffold(
       backgroundColor: ColorManager.white,
       appBar: AppBar(
@@ -80,12 +64,12 @@ class _OnBoardingState extends State<OnBoarding> {
         children: [
           PageView.builder(
             controller: _pageController,
-            itemCount: onBoardingModel.numOfSlides,
+            itemCount: sliderViewObject.numOfSlides,
             onPageChanged: (index) {
               _viewModel.onPageChanged(index);
             },
-            itemBuilder: (context, index) =>
-                OnBoardingPage(onBoardingModel: _viewModel.list[index]),
+            itemBuilder: (context, index) => OnBoardingPage(
+                onBoardingModel: sliderViewObject.onBoardingModel),
           ),
           Positioned(
             bottom: 0,
@@ -94,8 +78,8 @@ class _OnBoardingState extends State<OnBoarding> {
               child: Column(
                 children: [
                   DotsIndicator(
-                    dotsCount: onBoardingModel.numOfSlides,
-                    position: onBoardingModel.currentIndex.toDouble(),
+                    dotsCount: sliderViewObject.numOfSlides,
+                    position: sliderViewObject.currentIndex.toDouble(),
                     decorator: DotsDecorator(
                       size: const Size.square(AppSize.s8),
                       activeSize: const Size(AppSize.s8, AppSize.s20),
@@ -109,10 +93,12 @@ class _OnBoardingState extends State<OnBoarding> {
                     height: size.height * 0.06,
                     child: ElevatedButton(
                       onPressed: () {
-                        _viewModel.next();
+                        _pageController.animateToPage(_viewModel.next(context),
+                            duration: onboardingDuration,
+                            curve: onboardingCurve);
                       },
                       child: Text(
-                        onBoardingModel.onBoardingModel.txtButton,
+                        sliderViewObject.onBoardingModel.txtButton,
                         style: Theme.of(context)
                             .textTheme
                             .headlineSmall!
@@ -132,6 +118,7 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   void dispose() {
     _viewModel.dispose();
+    _pageController.dispose();
     super.dispose();
   }
 }

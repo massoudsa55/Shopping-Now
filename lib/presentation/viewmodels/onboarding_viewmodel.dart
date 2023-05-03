@@ -1,14 +1,15 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../app/app_strings.dart';
 import '../../app/resources/assets/image_assets.dart';
+import '../../app/resources/routes/routes_manager.dart';
 import '../../domain/models/models.dart';
 import '../bases/base_viewmodel.dart';
 
-abstract class OnBoardingViewModelIputs {
-  next();
+abstract class OnBoardingViewModelInputs {
+  int next(BuildContext context);
   onPageChanged(int index);
   Sink get inputOnBoardingModel;
 }
@@ -18,35 +19,16 @@ abstract class OnBoardingViewModelOutputs {
 }
 
 class OnBoardingViewModel extends BaseViewModel
-    with OnBoardingViewModelIputs, OnBoardingViewModelOutputs {
-  late final List<OnBoardingModel> list;
-  late final PageController _pageController;
-  late final StreamController _streamController;
+    with OnBoardingViewModelInputs, OnBoardingViewModelOutputs {
+  late final List<OnBoardingModel> _list;
+  late final StreamController<SliderViewObject> _streamController =
+      StreamController<SliderViewObject>();
   int _currentIndex = 0;
 
   @override
-  next() {
-    if (_currentIndex > list.length - 1) {
-      // TODO: implement code for navigate to login screen
-      // Navigator.;
-      _currentIndex = 0;
-    } else {
-      _pageController.animateToPage(_currentIndex,
-          duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);
-    }
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    _streamController.close();
-  }
-
-  @override
   void start() {
-    list = _getOnBoardingList();
-    _pageController = PageController();
-    _streamController = StreamController<SliderViewObject>();
+    _list = _getOnBoardingList();
+    _postDataToView();
   }
 
   @override
@@ -57,41 +39,57 @@ class OnBoardingViewModel extends BaseViewModel
       _streamController.stream.map((onBoardingModel) => onBoardingModel);
 
   @override
+  int next(BuildContext context) {
+    _currentIndex++;
+    if (_currentIndex == _list.length) {
+      Navigator.of(context).pushNamed(AppRoutes.loginScreenRoute);
+      _currentIndex = 0;
+    }
+    return _currentIndex;
+  }
+
+  @override
   onPageChanged(int index) {
     _currentIndex = index;
-    _postDataToView(index);
+    _postDataToView();
+  }
+
+  @override
+  void dispose() {
+    _streamController.close();
   }
 
   // onboarding private functions
-  void _postDataToView(int index) {
-    _streamController.add(_getOnBoardingList()[index]);
+  void _postDataToView() {
+    _streamController.add(SliderViewObject(
+        _getOnBoardingList()[_currentIndex], _list.length, _currentIndex));
   }
-}
 
 // use data statics
-List<OnBoardingModel> _getOnBoardingList() => [
-      OnBoardingModel(
-        AppStrings.onBoardingTitle1,
-        AppStrings.onBoardingSubTitle1,
-        ImageAssets.onBoardingLogo1,
-        AppStrings.next,
-      ),
-      OnBoardingModel(
-        AppStrings.onBoardingTitle2,
-        AppStrings.onBoardingSubTitle2,
-        ImageAssets.onBoardingLogo2,
-        AppStrings.next,
-      ),
-      OnBoardingModel(
-        AppStrings.onBoardingTitle3,
-        AppStrings.onBoardingSubTitle3,
-        ImageAssets.onBoardingLogo3,
-        AppStrings.next,
-      ),
-      OnBoardingModel(
-        AppStrings.onBoardingTitle4,
-        AppStrings.onBoardingSubTitle4,
-        ImageAssets.onBoardingLogo4,
-        AppStrings.getStarted,
-      ),
-    ];
+  List<OnBoardingModel> _getOnBoardingList() => [
+        OnBoardingModel(
+          AppStrings.onBoardingTitle1,
+          AppStrings.onBoardingSubTitle1,
+          ImageAssets.onBoardingLogo1,
+          AppStrings.next,
+        ),
+        OnBoardingModel(
+          AppStrings.onBoardingTitle2,
+          AppStrings.onBoardingSubTitle2,
+          ImageAssets.onBoardingLogo2,
+          AppStrings.next,
+        ),
+        OnBoardingModel(
+          AppStrings.onBoardingTitle3,
+          AppStrings.onBoardingSubTitle3,
+          ImageAssets.onBoardingLogo3,
+          AppStrings.next,
+        ),
+        OnBoardingModel(
+          AppStrings.onBoardingTitle4,
+          AppStrings.onBoardingSubTitle4,
+          ImageAssets.onBoardingLogo4,
+          AppStrings.getStarted,
+        ),
+      ];
+}

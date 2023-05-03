@@ -29,22 +29,31 @@ class SliderViewObject extends Equatable {
   List<Object?> get props => [onBoardingModel, numOfSlides, currentIndex];
 }
 
-class Customer {
-  String id;
-  String name;
-  int numOfNotifications;
-  Customer(this.id, this.name, this.numOfNotifications);
+class Customer extends Equatable {
+  final String id;
+  final String name;
+  final int numOfNotifications;
+  const Customer(this.id, this.name, this.numOfNotifications);
+
+  @override
+  List<Object?> get props => [id, name, numOfNotifications];
 }
 
-class Contacts {
-  String phone;
-  String email;
-  String link;
-  Contacts(this.phone, this.email, this.link);
+class Contacts extends Equatable {
+  final String phone;
+  final String email;
+  final String link;
+  const Contacts(this.phone, this.email, this.link);
+
+  @override
+  List<Object?> get props => [phone, email, link];
 }
 
-class Authentication {
-  Customer? customer;
-  Contacts? contacts;
-  Authentication(this.customer, this.contacts);
+class Authentication extends Equatable {
+  final Customer? customer;
+  final Contacts? contacts;
+  const Authentication(this.customer, this.contacts);
+
+  @override
+  List<Object?> get props => [customer, contacts];
 }

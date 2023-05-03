@@ -75,6 +75,8 @@ const Color errorColor = Color(0xFFEA5B5B);
 const double defaultPadding = 16.0;
 const double defaultBorderRadious = 12.0;
 const Duration defaultDuration = Duration(milliseconds: 300);
+const Duration onboardingDuration = Duration(milliseconds: 900);
+const onboardingCurve = Curves.easeInOut;
 
 // use form field validator package
 final passwordValidator = MultiValidator([
