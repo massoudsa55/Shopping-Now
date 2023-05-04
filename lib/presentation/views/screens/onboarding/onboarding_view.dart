@@ -35,6 +35,13 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   @override
+  void dispose() {
+    _viewModel.dispose();
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return StreamBuilder<SliderViewObject>(
       stream: _viewModel.outputsOnBoardingModel,
@@ -83,6 +90,8 @@ class _OnBoardingState extends State<OnBoarding> {
                       activeSize: const Size(AppSize.s8, AppSize.s20),
                       activeShape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(AppSize.s4)),
+                      spacing:
+                          const EdgeInsets.symmetric(horizontal: AppSize.s4),
                     ),
                   ),
                   SizedBox(height: size.height * 0.05),
@@ -111,13 +120,6 @@ class _OnBoardingState extends State<OnBoarding> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _viewModel.dispose();
-    _pageController.dispose();
-    super.dispose();
   }
 }
 

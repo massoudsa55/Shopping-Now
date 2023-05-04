@@ -59,7 +59,10 @@ ThemeData getApplicationTheme() => ThemeData(
         titleMedium: getMediumStyle(
             color: ColorManager.lightGrey, fontSize: FontSize.s14),
         labelLarge: getRegularStyle(color: ColorManager.grey1),
+        titleSmall: getSimpleStyle(color: ColorManager.white),
         bodyLarge: getRegularStyle(color: ColorManager.grey),
+        bodySmall: getLightStyle(color: ColorManager.grey),
+        labelSmall: getSmallStyle(color: ColorManager.grey),
       ),
 
       // input decoration theme

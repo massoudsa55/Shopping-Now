@@ -42,7 +42,7 @@ class OnBoardingViewModel extends BaseViewModel
   int next(BuildContext context) {
     _currentIndex++;
     if (_currentIndex == _list.length) {
-      Navigator.of(context).pushNamed(AppRoutes.loginScreenRoute);
+      Navigator.of(context).pushReplacementNamed(AppRoutes.loginScreenRoute);
       _currentIndex = 0;
     }
     return _currentIndex;

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/product_model.dart';
 import 'product/product_card.dart';
@@ -14,16 +16,19 @@ class PopularProducts extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: AppSize.s16 / 2),
+        const SizedBox(height: AppSize.s8),
         Padding(
           padding: const EdgeInsets.all(AppSize.s16),
           child: Text(
             "Popular products",
-            style: Theme.of(context).textTheme.subtitle2,
+            style: Theme.of(context)
+                .textTheme
+                .subtitle1!
+                .copyWith(color: ColorManager.grey),
           ),
         ),
         SizedBox(
-          height: 220,
+          height: 200.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             // Find demoPopularProducts on models/ProductModel.dart

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/resources/values/app_size.dart';
 import 'Banner/m/banner_m_style_1.dart';
@@ -96,13 +97,13 @@ class _OffersCarouselState extends State<OffersCarousel> {
             child: Padding(
               padding: const EdgeInsets.all(AppSize.s16),
               child: SizedBox(
-                height: 16,
+                height: 16.h,
                 child: Row(
                   children: List.generate(
                     offers.length,
                     (index) {
                       return Padding(
-                        padding: const EdgeInsets.only(left: AppSize.s16 / 4),
+                        padding: const EdgeInsets.only(left: AppSize.s4),
                         child: DotIndicator(
                           isActive: index == _selectedIndex,
                           activeColor: Colors.white70,

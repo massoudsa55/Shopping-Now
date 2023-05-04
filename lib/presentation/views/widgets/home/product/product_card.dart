@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../app/app_constants.dart';
+import '../../../../../app/resources/colors/color_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../network_image_with_loader.dart';
 
@@ -23,38 +24,39 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    Size size = Size(mediaQuery.size.width / 3, mediaQuery.size.height / 3);
     return OutlinedButton(
       onPressed: press,
       style: OutlinedButton.styleFrom(
-          minimumSize: const Size(140, 220),
-          maximumSize: const Size(140, 220),
-          padding: const EdgeInsets.all(8)),
+          minimumSize: size,
+          maximumSize: size,
+          padding: const EdgeInsets.all(AppSize.s8)),
       child: Column(
         children: [
           AspectRatio(
-            aspectRatio: 1.15,
+            aspectRatio: AppSize.s1_15,
             child: Stack(
               children: [
-                NetworkImageWithLoader(image, radius: defaultBorderRadious),
+                NetworkImageWithLoader(image, radius: AppSize.s12),
                 if (dicountpercent != null)
                   Positioned(
-                    right: AppSize.s16 / 2,
-                    top: AppSize.s16 / 2,
+                    right: AppSize.s8,
+                    top: AppSize.s8,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: AppSize.s16 / 2),
-                      height: 16,
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: AppSize.s8),
+                      height: AppSize.s16,
                       decoration: const BoxDecoration(
                         color: errorColor,
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(defaultBorderRadious)),
+                        borderRadius:
+                            BorderRadius.all(Radius.circular(AppSize.s12)),
                       ),
-                      child: Text(
-                        "$dicountpercent% off",
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500),
+                      child: Center(
+                        child: Text(
+                          "$dicountpercent% off",
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
                       ),
                     ),
                   )
@@ -64,7 +66,7 @@ class ProductCard extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: AppSize.s16 / 2, vertical: AppSize.s16 / 2),
+                  horizontal: AppSize.s8, vertical: AppSize.s8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -72,18 +74,16 @@ class ProductCard extends StatelessWidget {
                     brandName.toUpperCase(),
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText2!
-                        .copyWith(fontSize: 10),
+                        .titleSmall!
+                        .copyWith(color: ColorManager.grey),
                   ),
-                  const SizedBox(height: AppSize.s16 / 2),
+                  const SizedBox(height: AppSize.s8),
                   Text(
                     title,
-                    maxLines: 2,
+                    maxLines: AppSize.s2.toInt(),
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle2!
-                        .copyWith(fontSize: 12),
+                    style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                        color: ColorManager.lightPrimary.withOpacity(0.7)),
                   ),
                   const Spacer(),
                   priceAfetDiscount != null
@@ -91,11 +91,10 @@ class ProductCard extends StatelessWidget {
                           children: [
                             Text(
                               "\$$priceAfetDiscount",
-                              style: const TextStyle(
-                                color: Color(0xFF31B0D8),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 12,
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(color: ColorManager.blue),
                             ),
                             const SizedBox(width: AppSize.s16 / 4),
                             Text(
@@ -105,7 +104,7 @@ class ProductCard extends StatelessWidget {
                                     .textTheme
                                     .bodyText2!
                                     .color,
-                                fontSize: 10,
+                                fontSize: AppSize.s10,
                                 decoration: TextDecoration.lineThrough,
                               ),
                             ),
@@ -113,11 +112,10 @@ class ProductCard extends StatelessWidget {
                         )
                       : Text(
                           "\$$price",
-                          style: const TextStyle(
-                            color: Color(0xFF31B0D8),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(color: ColorManager.blue),
                         ),
                 ],
               ),

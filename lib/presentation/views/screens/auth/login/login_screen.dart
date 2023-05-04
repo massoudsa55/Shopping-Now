@@ -23,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    print("fff");
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -74,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           // Navigator.of(context).push(MaterialPageRoute(
                           //     builder: (context) => const StartScreen()));
                           Navigator.of(context)
-                              .pushNamed(AppRoutes.startScreenRoute);
+                              .pushReplacementNamed(AppRoutes.startScreenRoute);
                         }
                       },
                       child: const Text("Log in"),

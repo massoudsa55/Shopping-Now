@@ -15,7 +15,17 @@ TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
 // light style
 TextStyle getLightStyle(
         {double fontSize = FontSize.s12, required Color color}) =>
-    _getTextStyle(fontSize, FontWeightManager.light, color);
+    _getTextStyle(fontSize, FontWeightManager.bold, color);
+
+// simple style
+TextStyle getSimpleStyle(
+        {double fontSize = FontSize.s10, required Color color}) =>
+    _getTextStyle(fontSize, FontWeightManager.bold, color);
+
+// lable small style
+TextStyle getSmallStyle(
+        {double fontSize = FontSize.s8, required Color color}) =>
+    _getTextStyle(fontSize, FontWeightManager.bold, color);
 
 // regular style
 TextStyle getRegularStyle(

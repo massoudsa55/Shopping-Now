@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../app/app_constants.dart';
+import '../../../app/resources/colors/color_manager.dart';
 import '../../../app/resources/values/app_size.dart';
 import 'home/home_screen.dart';
 
@@ -74,6 +75,7 @@ class StartScreenState extends State<StartScreen> {
             ),
           ),
         ],
+        elevation: AppSize.s0,
       ),
       // body: _pages[_currentIndex],
       body: PageTransitionSwitcher(
@@ -91,7 +93,7 @@ class StartScreenState extends State<StartScreen> {
         padding: const EdgeInsets.only(top: AppSize.s8),
         color: Theme.of(context).brightness == Brightness.light
             ? Colors.white
-            : const Color(0xFF101015),
+            : ColorManager.primary,
         child: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: (index) {
@@ -107,35 +109,37 @@ class StartScreenState extends State<StartScreen> {
           type: BottomNavigationBarType.fixed,
           // selectedLabelStyle: TextStyle(color: primaryColor),
           selectedFontSize: 12,
-          selectedItemColor: primaryColor,
+          selectedItemColor: ColorManager.primary,
           unselectedItemColor: Colors.transparent,
           items: [
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/shop.svg"),
-              activeIcon: svgIcon("assets/icons/shop.svg", color: primaryColor),
+              activeIcon:
+                  svgIcon("assets/icons/shop.svg", color: ColorManager.primary),
               label: "Shop",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/category.svg"),
-              activeIcon:
-                  svgIcon("assets/icons/category.svg", color: primaryColor),
+              activeIcon: svgIcon("assets/icons/category.svg",
+                  color: ColorManager.primary),
               label: "Discover",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/bookmark.svg"),
-              activeIcon:
-                  svgIcon("assets/icons/bookmark.svg", color: primaryColor),
+              activeIcon: svgIcon("assets/icons/bookmark.svg",
+                  color: ColorManager.primary),
               label: "Bookmark",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/bag.svg"),
-              activeIcon: svgIcon("assets/icons/bag.svg", color: primaryColor),
+              activeIcon:
+                  svgIcon("assets/icons/bag.svg", color: ColorManager.primary),
               label: "Cart",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/profile.svg"),
-              activeIcon:
-                  svgIcon("assets/icons/profile.svg", color: primaryColor),
+              activeIcon: svgIcon("assets/icons/profile.svg",
+                  color: ColorManager.primary),
               label: "Profile",
             ),
           ],
