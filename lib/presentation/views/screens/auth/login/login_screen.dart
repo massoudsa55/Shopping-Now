@@ -18,7 +18,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -66,15 +66,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           // Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,ModalRoute.withName(logInScreenRoute));
-                          await _auth
+                          /*await _auth
                               .createUserWithEmailAndPassword(
                                   email: "massoudsa55@gmail.com",
                                   password: "password")
-                              .then((value) => print(value));
-                          print("fff");
-                          // ignore: use_build_context_synchronously
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const HomeScreen()));
+                              .then((value) => print(value));*/
+                          // Navigator.of(context).push(MaterialPageRoute(
+                          //     builder: (context) => const StartScreen()));
+                          Navigator.of(context)
+                              .pushNamed(AppRoutes.startScreenRoute);
                         }
                       },
                       child: const Text("Log in"),

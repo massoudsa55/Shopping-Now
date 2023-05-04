@@ -5,8 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../app/app_constants.dart';
-import '../../../../app/app_preference.dart';
-import '../../../../app/dependency_injection.dart';
 import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/models.dart';

@@ -4,12 +4,13 @@ import '../../../presentation/views/screens/auth/login/login_screen.dart';
 import '../../../presentation/views/screens/home/home_screen.dart';
 import '../../../presentation/views/screens/splashscreen/splash_screen.dart';
 import '../../../presentation/views/screens/onboarding/onboarding_view.dart';
+import '../../../presentation/views/screens/start_screen.dart';
 import 'routes_manager.dart';
 
 class AppRouter {
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case AppRoutes.splashRoute:
+      case AppRoutes.splashScreenRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case AppRoutes.onBoardingRoute:
         return MaterialPageRoute(builder: (_) => const OnBoarding());
@@ -17,6 +18,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case AppRoutes.homeScreenRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+      case AppRoutes.startScreenRoute:
+        return MaterialPageRoute(builder: (_) => const StartScreen());
       default:
         return unDefinedRoute();
     }

@@ -1,11 +1,10 @@
 class AppRoutes {
-  static const String splashRoute = '/';
-  static const String loginRoute = '/login';
-  static const String registerRoute = '/register';
-  static const String forgotPassworedRoute = '/forgotPasswored';
-  static const String mainRoute = '/main';
-  static const String storeDetailsRoute = '/storeDetails';
-  static const String onBoardingRoute = '/onBoarding';
+  static const String splashScreenRoute = '/';
   static const String loginScreenRoute = '/loginScreen';
+  static const String registerScreenRoute = '/registerScreen';
+  static const String forgotPassworedScreenRoute = '/forgotPasswored';
+  static const String storeDetailsScreenRoute = '/storeDetails';
+  static const String onBoardingRoute = '/onBoarding';
   static const String homeScreenRoute = '/homeScreen';
+  static const String startScreenRoute = '/startScreen';
 }
