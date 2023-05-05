@@ -7,6 +7,7 @@ import '../../../app/app_constants.dart';
 import '../../../app/resources/colors/color_manager.dart';
 import '../../../app/resources/values/app_size.dart';
 import 'home/home_screen.dart';
+import 'home/cart_screen.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({Key? key}) : super(key: key);
@@ -22,9 +23,9 @@ class StartScreenState extends State<StartScreen> {
     // DiscoverScreen(),
     Container(),
     // BookmarkScreen(),
-    Container(),
+    //Container(),
     // EmptyCartScreen(), // if Cart is empty
-    // CartScreen(),
+    const CartScreen(),
     Container(),
     // ProfileScreen(),
   ];

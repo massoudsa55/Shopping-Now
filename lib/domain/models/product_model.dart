@@ -1,14 +1,18 @@
 // For demo only
 
+import 'package:equatable/equatable.dart';
+
 import '../../app/app_constants.dart';
 
-class ProductModel {
+class ProductModel extends Equatable {
+  final String id;
   final String image, brandName, title;
   final double price;
   final double? priceAfetDiscount;
   final int? dicountpercent;
 
-  ProductModel({
+  const ProductModel({
+    required this.id,
     required this.image,
     required this.brandName,
     required this.title,
@@ -16,10 +20,22 @@ class ProductModel {
     this.priceAfetDiscount,
     this.dicountpercent,
   });
+
+  @override
+  List<Object?> get props => [
+        id,
+        image,
+        brandName,
+        title,
+        price,
+        priceAfetDiscount,
+        dicountpercent,
+      ];
 }
 
 List<ProductModel> demoPopularProducts = [
-  ProductModel(
+  const ProductModel(
+    id: "prd001",
     image: productDemoImg1,
     title: "Mountain Warehouse for Women",
     brandName: "Lipsy london",
@@ -27,13 +43,15 @@ List<ProductModel> demoPopularProducts = [
     priceAfetDiscount: 420,
     dicountpercent: 20,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd002",
     image: productDemoImg4,
     title: "Mountain Beta Warehouse",
     brandName: "Lipsy london",
     price: 800,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd003",
     image: productDemoImg5,
     title: "FS - Nike Air Max 270 Really React",
     brandName: "Lipsy london",
@@ -41,7 +59,8 @@ List<ProductModel> demoPopularProducts = [
     priceAfetDiscount: 390.36,
     dicountpercent: 40,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd004",
     image: productDemoImg6,
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
@@ -49,7 +68,8 @@ List<ProductModel> demoPopularProducts = [
     priceAfetDiscount: 1200.8,
     dicountpercent: 5,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd005",
     image: "https://i.imgur.com/tXyOMMG.png",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
@@ -57,7 +77,8 @@ List<ProductModel> demoPopularProducts = [
     priceAfetDiscount: 390.36,
     dicountpercent: 40,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd006",
     image: "https://i.imgur.com/h2LqppX.png",
     title: "white satin corset top",
     brandName: "Lipsy london",
@@ -67,7 +88,8 @@ List<ProductModel> demoPopularProducts = [
   ),
 ];
 List<ProductModel> demoFlashSaleProducts = [
-  ProductModel(
+  const ProductModel(
+    id: "prd007",
     image: productDemoImg5,
     title: "FS - Nike Air Max 270 Really React",
     brandName: "Lipsy london",
@@ -75,7 +97,8 @@ List<ProductModel> demoFlashSaleProducts = [
     priceAfetDiscount: 390.36,
     dicountpercent: 40,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd008",
     image: productDemoImg6,
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
@@ -83,7 +106,8 @@ List<ProductModel> demoFlashSaleProducts = [
     priceAfetDiscount: 1200.8,
     dicountpercent: 5,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd009",
     image: productDemoImg4,
     title: "Mountain Beta Warehouse",
     brandName: "Lipsy london",
@@ -93,7 +117,8 @@ List<ProductModel> demoFlashSaleProducts = [
   ),
 ];
 List<ProductModel> demoBestSellersProducts = [
-  ProductModel(
+  const ProductModel(
+    id: "prd001",
     image: "https://i.imgur.com/tXyOMMG.png",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
@@ -101,7 +126,8 @@ List<ProductModel> demoBestSellersProducts = [
     priceAfetDiscount: 390.36,
     dicountpercent: 40,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd002",
     image: "https://i.imgur.com/h2LqppX.png",
     title: "white satin corset top",
     brandName: "Lipsy london",
@@ -109,7 +135,8 @@ List<ProductModel> demoBestSellersProducts = [
     priceAfetDiscount: 1200.8,
     dicountpercent: 5,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd003",
     image: productDemoImg4,
     title: "Mountain Beta Warehouse",
     brandName: "Lipsy london",
@@ -119,7 +146,8 @@ List<ProductModel> demoBestSellersProducts = [
   ),
 ];
 List<ProductModel> kidsProducts = [
-  ProductModel(
+  const ProductModel(
+    id: "prd004",
     image: "https://i.imgur.com/dbbT6PA.png",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
@@ -127,19 +155,22 @@ List<ProductModel> kidsProducts = [
     priceAfetDiscount: 590.36,
     dicountpercent: 24,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd005",
     image: "https://i.imgur.com/7fSxC7k.png",
     title: "Printed Sleeveless Tiered Swing Dress",
     brandName: "Lipsy london",
     price: 650.62,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd006",
     image: "https://i.imgur.com/pXnYE9Q.png",
     title: "Ruffle-Sleeve Ponte-Knit Sheath ",
     brandName: "Lipsy london",
     price: 400,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd007",
     image: "https://i.imgur.com/V1MXgfa.png",
     title: "Green Mountain Beta Warehouse",
     brandName: "Lipsy london",
@@ -147,13 +178,15 @@ List<ProductModel> kidsProducts = [
     priceAfetDiscount: 360,
     dicountpercent: 20,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd008",
     image: "https://i.imgur.com/8gvE5Ss.png",
     title: "Printed Sleeveless Tiered Swing Dress",
     brandName: "Lipsy london",
     price: 654,
   ),
-  ProductModel(
+  const ProductModel(
+    id: "prd009",
     image: "https://i.imgur.com/cBvB5YB.png",
     title: "Mountain Beta Warehouse",
     brandName: "Lipsy london",

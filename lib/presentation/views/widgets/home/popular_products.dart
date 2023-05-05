@@ -5,6 +5,7 @@ import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/product_model.dart';
 import 'product/product_card.dart';
+import 'title_of_items.dart';
 
 class PopularProducts extends StatelessWidget {
   const PopularProducts({
@@ -17,15 +18,9 @@ class PopularProducts extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: AppSize.s8),
-        Padding(
-          padding: const EdgeInsets.all(AppSize.s16),
-          child: Text(
-            "Popular products",
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .copyWith(color: ColorManager.grey),
-          ),
+        const Padding(
+          padding: EdgeInsets.all(AppSize.s16),
+          child: TitleOfItems(title: "Popular products"),
         ),
         SizedBox(
           height: 200.h,

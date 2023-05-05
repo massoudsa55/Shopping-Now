@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import 'categories.dart';
 import 'offers_carousel.dart';
+import 'title_of_items.dart';
 
 class OffersCarouselAndCategories extends StatelessWidget {
   const OffersCarouselAndCategories({
@@ -14,20 +14,14 @@ class OffersCarouselAndCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const OffersCarousel(),
-        const SizedBox(height: AppSize.s8),
+      children: const [
+        OffersCarousel(),
+        SizedBox(height: AppSize.s8),
         Padding(
-          padding: const EdgeInsets.all(AppSize.s16),
-          child: Text(
-            "Categories",
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .copyWith(color: ColorManager.grey),
-          ),
+          padding: EdgeInsets.all(AppSize.s16),
+          child: TitleOfItems(title: "Categories"),
         ),
-        const Categories(),
+        Categories(),
       ],
     );
   }
