@@ -9,7 +9,7 @@ import 'banner_m.dart';
 class BannerMStyle3 extends StatelessWidget {
   const BannerMStyle3({
     Key? key,
-    this.image = "https://i.imgur.com/8REExBV.png",
+    this.image = "https://i.ibb.co/zRy5B75/image3.jpg",
     required this.title,
     required this.press,
     required this.discountParcent,

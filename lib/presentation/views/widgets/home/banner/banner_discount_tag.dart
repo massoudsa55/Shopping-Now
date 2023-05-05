@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../app/resources/values/app_size.dart';
 import '../../../../../app/app_constants.dart';
 
 class BannerDiscountTag extends StatelessWidget {
@@ -9,7 +11,7 @@ class BannerDiscountTag extends StatelessWidget {
     this.width = 36,
     this.height = 60,
     required this.percentage,
-    this.percentageFontSize = 10,
+    this.percentageFontSize = AppSize.s10,
   }) : super(key: key);
   final double width, height;
   final int percentage;
@@ -18,8 +20,8 @@ class BannerDiscountTag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,
-      height: height,
+      width: width.w,
+      height: height.h,
       child: Stack(
         alignment: Alignment.center,
         children: [

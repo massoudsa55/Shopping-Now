@@ -19,14 +19,14 @@ class GetBanners extends StatelessWidget {
           discountParcent: 50,
           press: () {},
         ),
-        const SizedBox(height: AppSize.s16 / 4),
+        const SizedBox(height: AppSize.s4),
         BannerSStyle4(
           title: "SUMMER \nSALE",
           subtitle: "SPECIAL OFFER",
           bottomText: "UP TO 80% OFF",
           press: () {},
         ),
-        const SizedBox(height: AppSize.s16 / 4),
+        const SizedBox(height: AppSize.s4),
         BannerSStyle4(
           image: "https://i.imgur.com/dBrsD0M.png",
           title: "Black \nfriday",
