@@ -22,7 +22,7 @@ class StartScreenState extends State<StartScreen> {
     Container(),
     // DiscoverScreen(),
     Container(),
-    // BookmarkScreen(),
+    // FavoryScreen(),
     //Container(),
     // EmptyCartScreen(), // if Cart is empty
     const CartScreen(),

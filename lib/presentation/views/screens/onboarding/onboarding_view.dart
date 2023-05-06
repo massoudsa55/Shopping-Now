@@ -153,7 +153,9 @@ class OnBoardingPage extends StatelessWidget {
             child: Text(
               onBoardingModel.title,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displayLarge,
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    color: ColorManager.primary,
+                  ),
             ),
           ),
           Padding(

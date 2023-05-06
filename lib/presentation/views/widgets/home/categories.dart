@@ -87,7 +87,7 @@ class CategoryBtn extends StatelessWidget {
       borderRadius: const BorderRadius.all(Radius.circular(AppSize.s30)),
       child: Container(
         height: 35.h,
-        padding: const EdgeInsets.symmetric(horizontal: AppSize.s16),
+        padding: const EdgeInsets.symmetric(horizontal: AppSize.s20),
         decoration: BoxDecoration(
           color: isActive ? ColorManager.primary : Colors.transparent,
           border: Border.all(
@@ -105,7 +105,7 @@ class CategoryBtn extends StatelessWidget {
                 color:
                     isActive ? Colors.white : Theme.of(context).iconTheme.color,
               ),
-            if (svgSrc != null) const SizedBox(width: AppSize.s8),
+            if (svgSrc != null) const SizedBox(width: AppSize.s12),
             Text(
               category,
               style: Theme.of(context).textTheme.bodySmall!.copyWith(

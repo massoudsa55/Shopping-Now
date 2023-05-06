@@ -5,7 +5,14 @@ import '../../../../../app/resources/values/app_size.dart';
 import '../title_of_items.dart';
 
 class OrderSummary extends StatelessWidget {
-  const OrderSummary({super.key});
+  const OrderSummary({
+    super.key,
+    required this.title,
+    required this.children,
+  });
+
+  final String title;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -25,30 +32,13 @@ class OrderSummary extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: AppSize.s16),
             child: TitleOfItems(
-              title: "Order Summary",
+              title: title,
               fontSize: AppSize.s18,
               fontColor: ColorManager.black,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const RowOfOrderSummary(title: "Subtotal", value: "\$169"),
-          const SizedBox(height: AppSize.s8),
-          const RowOfOrderSummary(
-              title: "ShippingFree", value: "Free", isNotHasPris: true),
-          const SizedBox(height: AppSize.s8),
-          const RowOfOrderSummary(title: "Discount", value: "\$10"),
-          const SizedBox(height: AppSize.s8),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: AppSize.s4),
-            child: Divider(
-              thickness: AppSize.s1_5,
-            ),
-          ),
-          const RowOfOrderSummary(
-              title: "Total(Include of VAT)", value: "\$185"),
-          const SizedBox(height: AppSize.s8),
-          const RowOfOrderSummary(title: "Estimated Vat", value: "\$5"),
-          const SizedBox(height: AppSize.s8),
+          ...children,
         ],
       ),
     );
