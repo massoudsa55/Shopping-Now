@@ -7,6 +7,7 @@ class ColorManager {
   static Color lightGrey = const Color(0xff9E9E9E);
   static Color black = const Color(0xff000000);
   static Color blue = const Color(0xFF31B0D8);
+  static Color green = const Color.fromARGB(255, 31, 172, 101);
   // new colors
   static Color darkPrimary = const Color(0xffd17d11);
   static Color lightPrimary = const Color(0xCCd17d11); // color with 80% opacity

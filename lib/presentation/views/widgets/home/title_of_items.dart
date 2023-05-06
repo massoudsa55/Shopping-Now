@@ -8,17 +8,22 @@ class TitleOfItems extends StatelessWidget {
     Key? key,
     required this.title,
     this.fontSize = AppSize.s12,
+    this.fontColor = Colors.grey,
+    this.fontWeight = FontWeight.normal,
   }) : super(key: key);
   final String title;
   final double fontSize;
+  final Color fontColor;
+  final FontWeight fontWeight;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
       style: Theme.of(context).textTheme.subtitle1!.copyWith(
-            color: ColorManager.grey,
+            color: fontColor == Colors.grey ? ColorManager.grey : fontColor,
             fontSize: fontSize,
+            fontWeight: fontWeight,
           ),
     );
   }

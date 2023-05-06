@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/product_model.dart';
 import 'Banner/m/banner_m_with_counter.dart';
 import 'product/product_card.dart';
+import 'title_of_items.dart';
 
 class FlashSale extends StatelessWidget {
   const FlashSale({
@@ -20,19 +22,15 @@ class FlashSale extends StatelessWidget {
           text: "Super Flash Sale \n50% Off",
           press: () {},
         ),
-        const SizedBox(height: AppSize.s16 / 2),
-        Padding(
-          padding: const EdgeInsets.all(AppSize.s16),
-          child: Text(
-            "Flash sale",
-            style: Theme.of(context).textTheme.subtitle2,
-          ),
+        const SizedBox(height: AppSize.s8),
+        const Padding(
+          padding: EdgeInsets.all(AppSize.s16),
+          child: TitleOfItems(title: "Flash sale", fontSize: AppSize.s18),
         ),
         SizedBox(
-          height: 220,
+          height: 190.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            // Find demoFlashSaleProducts on models/ProductModel.dart
             itemCount: demoFlashSaleProducts.length,
             itemBuilder: (context, index) => Padding(
               padding: EdgeInsets.only(

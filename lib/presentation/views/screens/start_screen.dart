@@ -37,6 +37,7 @@ class StartScreenState extends State<StartScreen> {
       return SvgPicture.asset(
         src,
         height: 24.h,
+        // colorBlendMode: BlendMode.modulate,
         color: color ??
             Theme.of(context).iconTheme.color!.withOpacity(
                 Theme.of(context).brightness == Brightness.dark ? 0.3 : 1),
@@ -126,10 +127,10 @@ class StartScreenState extends State<StartScreen> {
               label: "Discover",
             ),
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/bookmark.svg"),
-              activeIcon: svgIcon("assets/icons/bookmark.svg",
+              icon: svgIcon("assets/icons/heart.svg"),
+              activeIcon: svgIcon("assets/icons/heart.svg",
                   color: ColorManager.primary),
-              label: "Bookmark",
+              label: "Favory",
             ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/bag.svg"),

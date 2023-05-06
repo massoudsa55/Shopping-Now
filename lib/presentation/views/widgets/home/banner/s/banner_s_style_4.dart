@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../../app/app_constants.dart';
@@ -39,24 +40,23 @@ class BannerSStyle4 extends StatelessWidget {
                     if (subtitle != null)
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: AppSize.s16 / 2,
-                            vertical: AppSize.s16 / 8),
+                            horizontal: AppSize.s8, vertical: AppSize.s2),
                         color: Colors.white70,
                         child: Text(
                           subtitle!,
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.black54,
                             fontWeight: FontWeight.bold,
-                            fontSize: 12,
+                            fontSize: 12.sp,
                           ),
                         ),
                       ),
-                    const SizedBox(height: AppSize.s16 / 2),
+                    const SizedBox(height: AppSize.s8),
                     Text(
                       title.toUpperCase(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: grandisExtendedFont,
-                        fontSize: 28,
+                        fontSize: 28.sp,
                         fontWeight: FontWeight.w900,
                         color: Colors.white,
                         height: 1,
@@ -66,10 +66,10 @@ class BannerSStyle4 extends StatelessWidget {
                     if (bottomText != null)
                       Text(
                         bottomText!,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: grandisExtendedFont,
                           color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       )
@@ -78,8 +78,8 @@ class BannerSStyle4 extends StatelessWidget {
               ),
               const SizedBox(width: AppSize.s16),
               SizedBox(
-                height: 48,
-                width: 48,
+                height: 45.h,
+                width: 45.w,
                 child: ElevatedButton(
                   onPressed: press,
                   style: ElevatedButton.styleFrom(
@@ -87,7 +87,7 @@ class BannerSStyle4 extends StatelessWidget {
                     backgroundColor: Colors.white,
                   ),
                   child: SvgPicture.asset(
-                    "assets/icons/Arrow - Right.svg",
+                    "assets/icons/right_arrow.svg",
                     color: Colors.black,
                   ),
                 ),

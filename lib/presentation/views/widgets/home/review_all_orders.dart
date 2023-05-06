@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/order_model.dart';
 import 'product/order_product.dart';
@@ -14,11 +15,16 @@ class ReviewAllOrders extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.all(AppSize.s16),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: AppSize.s20,
+            top: AppSize.s20,
+            bottom: AppSize.s8,
+          ),
           child: TitleOfItems(
             title: "Review your order",
-            fontSize: AppSize.s18,
+            fontColor: ColorManager.black,
+            fontSize: AppSize.s20,
           ),
         ),
         SizedBox(

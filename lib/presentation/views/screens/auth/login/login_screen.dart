@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../app/resources/routes/routes_manager.dart';
+import '../../../widgets/main_button.dart';
 import "../../home/home_screen.dart";
 import '../../../../../app/resources/assets/image_assets.dart';
 import '../../../../../app/resources/values/app_size.dart';
@@ -58,26 +59,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: size.height > 700 ? size.height * 0.1 : AppSize.s20,
                   ),
-                  SizedBox(
-                    height: 40.h,
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          // Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,ModalRoute.withName(logInScreenRoute));
-                          /*await _auth
-                              .createUserWithEmailAndPassword(
-                                  email: "massoudsa55@gmail.com",
-                                  password: "password")
-                              .then((value) => print(value));*/
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //     builder: (context) => const StartScreen()));
-                          Navigator.of(context)
-                              .pushReplacementNamed(AppRoutes.startScreenRoute);
-                        }
-                      },
-                      child: const Text("Log in"),
-                    ),
+                  MainButton(
+                    text: "Log in",
+                    press: () async {
+                      if (_formKey.currentState!.validate()) {
+                        // Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,ModalRoute.withName(logInScreenRoute));
+                        /*await _auth
+                .createUserWithEmailAndPassword(
+                    email: "massoudsa55@gmail.com",
+                    password: "password")
+                .then((value) => print(value));*/
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (context) => const StartScreen()));
+                        Navigator.of(context)
+                            .pushReplacementNamed(AppRoutes.startScreenRoute);
+                      }
+                    },
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

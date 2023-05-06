@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../../app/app_constants.dart';
 import '../../../../../../app/resources/values/app_size.dart';
@@ -39,22 +40,22 @@ class BannerSStyle1 extends StatelessWidget {
                   children: [
                     Text(
                       title.toUpperCase(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: grandisExtendedFont,
-                        fontSize: 28,
+                        fontSize: 25.sp,
                         fontWeight: FontWeight.w900,
                         color: Colors.white,
                         height: 1,
                       ),
                     ),
-                    const SizedBox(height: AppSize.s16 / 4),
+                    const SizedBox(height: AppSize.s4),
                     if (subtitle != null)
                       Text(
                         subtitle!.toUpperCase(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
+                          fontSize: 10.sp,
                         ),
                       ),
                   ],
@@ -62,8 +63,8 @@ class BannerSStyle1 extends StatelessWidget {
               ),
               const SizedBox(width: AppSize.s16),
               SizedBox(
-                height: 48,
-                width: 48,
+                height: 45.h,
+                width: 45.w,
                 child: ElevatedButton(
                   onPressed: press,
                   style: ElevatedButton.styleFrom(
@@ -71,7 +72,7 @@ class BannerSStyle1 extends StatelessWidget {
                     backgroundColor: Colors.white,
                   ),
                   child: SvgPicture.asset(
-                    "assets/icons/Arrow - Right.svg",
+                    "assets/icons/right_arrow.svg",
                     color: Colors.black,
                   ),
                 ),
@@ -83,7 +84,7 @@ class BannerSStyle1 extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: BannerDiscountTag(
             percentage: discountParcent,
-            height: 56,
+            height: 45.h,
           ),
         ),
       ],

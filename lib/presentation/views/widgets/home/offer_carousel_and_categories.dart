@@ -19,7 +19,7 @@ class OffersCarouselAndCategories extends StatelessWidget {
         SizedBox(height: AppSize.s8),
         Padding(
           padding: EdgeInsets.all(AppSize.s16),
-          child: TitleOfItems(title: "Categories"),
+          child: TitleOfItems(title: "Categories", fontSize: AppSize.s18),
         ),
         Categories(),
       ],

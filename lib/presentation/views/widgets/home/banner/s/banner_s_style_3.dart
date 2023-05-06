@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../app/app_constants.dart';
 import '../../../../../../app/resources/values/app_size.dart';
@@ -35,21 +36,20 @@ class BannerSStyle3 extends StatelessWidget {
                     if (subTitle != null)
                       Text(
                         subTitle!,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
                           fontFamily: grandisExtendedFont,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    if (subTitle != null)
-                      const SizedBox(height: AppSize.s16 / 4),
+                    if (subTitle != null) const SizedBox(height: AppSize.s4),
                     Text(
                       title.toUpperCase(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontFamily: grandisExtendedFont,
                         color: Colors.white,
-                        fontSize: 28,
+                        fontSize: 28.sp,
                         fontWeight: FontWeight.w900,
                         height: 1,
                       ),
