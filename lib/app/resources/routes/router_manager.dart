@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../presentation/views/screens/auth/login/login_screen.dart';
 import '../../../presentation/views/screens/home/home_screen.dart';
-import '../../../presentation/views/screens/home/payment_screen.dart';
-import '../../../presentation/views/screens/home/payment_success_screen.dart';
+import '../../../presentation/views/screens/home/payment/payment_screen.dart';
+import '../../../presentation/views/screens/home/payment/payment_success_screen.dart';
 import '../../../presentation/views/screens/splashscreen/splash_screen.dart';
 import '../../../presentation/views/screens/onboarding/onboarding_view.dart';
 import '../../../presentation/views/screens/start_screen.dart';

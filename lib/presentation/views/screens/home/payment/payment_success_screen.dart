@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../app/resources/colors/color_manager.dart';
-import '../../../../app/resources/values/app_size.dart';
-import '../../widgets/home/product/secondary_order_card.dart';
-import '../../widgets/home/title_of_items.dart';
-import '../../widgets/main_button.dart';
+import '../../../../../app/resources/colors/color_manager.dart';
+import '../../../../../app/resources/values/app_size.dart';
+import '../../../widgets/home/product/secondary_order_card.dart';
+import '../../../widgets/home/title_of_items.dart';
+import '../../../widgets/main_button.dart';
 
 class PaymentSuccessScreen extends StatelessWidget {
   const PaymentSuccessScreen({super.key});

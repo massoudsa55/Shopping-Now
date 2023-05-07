@@ -29,6 +29,7 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   json_annotation: ^4.8.0
   json_serializable: ^6.1.4
+  lottie: ^2.3.2
   retrofit: ^4.0.1
   shared_preferences: ^2.1.0
 

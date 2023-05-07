@@ -1,118 +1,59 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../../app/resources/colors/color_manager.dart';
-import '../../../../app/resources/routes/routes_manager.dart';
-import '../../../../app/resources/values/app_size.dart';
-import '../../widgets/home/categories.dart';
-import '../../widgets/home/title_of_items.dart';
-import '../../widgets/main_button.dart';
+import '../../../../../app/resources/routes/routes_manager.dart';
+import '../../../../../app/resources/values/app_size.dart';
+import '../../../widgets/home/categories.dart';
+import '../../../widgets/main_button.dart';
 
-class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({
-    super.key,
-  });
+class PaymentWithCard extends StatefulWidget {
+  const PaymentWithCard({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    final GlobalKey<FormFieldState<String>> cardNumberKey =
-        GlobalKey<FormFieldState<String>>();
-    final GlobalKey<FormFieldState<String>> cvvCodeKey =
-        GlobalKey<FormFieldState<String>>();
-    final GlobalKey<FormFieldState<String>> expiryDateKey =
-        GlobalKey<FormFieldState<String>>();
-    final GlobalKey<FormFieldState<String>> cardHolderKey =
-        GlobalKey<FormFieldState<String>>();
-    String cardNumber = '1548549596',
-        expiryDate = '10/24',
-        cardHolderName = 'Visa',
-        cvvCode = '45662';
-    bool showBackView = true;
-    return Scaffold(
-      appBar: AppBar(
-        // pinned: true,
-        // floating: true,
-        // snap: true,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        leading: BackButton(color: ColorManager.grey),
-        leadingWidth: 0,
-        centerTitle: false,
+  State<PaymentWithCard> createState() => _PaymentWithCardState();
+}
 
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppSize.s30),
-          child:
-              TitleOfItems(title: "Payment method", fontSize: AppSize.s20.sp),
-        ),
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: ColorManager.darkGrey,
-          statusBarBrightness: Brightness.dark,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              "assets/icons/category.svg",
-              //  category.svg
-              //  dot.svg
-              height: 24,
-              color: Theme.of(context).textTheme.bodyText1!.color,
-            ),
+class _PaymentWithCardState extends State<PaymentWithCard> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final GlobalKey<FormFieldState<String>> cardNumberKey =
+      GlobalKey<FormFieldState<String>>();
+  final GlobalKey<FormFieldState<String>> cvvCodeKey =
+      GlobalKey<FormFieldState<String>>();
+  final GlobalKey<FormFieldState<String>> expiryDateKey =
+      GlobalKey<FormFieldState<String>>();
+  final GlobalKey<FormFieldState<String>> cardHolderKey =
+      GlobalKey<FormFieldState<String>>();
+  String cardNumber = '1548549596',
+      expiryDate = '10/24',
+      cardHolderName = 'Visa',
+      cvvCode = '45662';
+  bool showBackView = true;
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Column(
+        children: [
+          PaymentMethod(
+            formKey: formKey,
+            cardNumberKey: cardNumberKey,
+            cvvCodeKey: cvvCodeKey,
+            expiryDateKey: expiryDateKey,
+            cardHolderKey: cardHolderKey,
           ),
-        ],
-        elevation: AppSize.s0,
-      ),
-      body: SafeArea(
-          child: CustomScrollView(
-        slivers: [
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(vertical: AppSize.s16),
-            sliver: SliverToBoxAdapter(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CategoryBtn(
-                  category: "Pay with card",
-                  isActive: true,
-                  svgSrc: "assets/icons/credit_card.svg",
-                  press: () {},
-                ),
-                const SizedBox(width: AppSize.s20),
-                CategoryBtn(
-                  category: "Pay with cash",
-                  svgSrc: "assets/icons/payment_cash.svg",
-                  isActive: false,
-                  press: () {},
-                ),
-              ],
-            )),
-          ),
-          SliverToBoxAdapter(
-            child: PaymentMethod(
-              formKey: formKey,
-              cardNumberKey: cardNumberKey,
-              cvvCodeKey: cvvCodeKey,
-              expiryDateKey: expiryDateKey,
-              cardHolderKey: cardHolderKey,
-            ),
-          ),
-          SliverPadding(
+          Padding(
             padding: const EdgeInsets.all(AppSize.s20),
-            sliver: SliverToBoxAdapter(
-                child: MainButton(
+            child: MainButton(
               text: "Confirm",
               press: () {
                 Navigator.of(context)
                     .pushNamed(AppRoutes.paymentSuccessScreenRoute);
               },
-            )),
+            ),
           ),
         ],
-      )),
+      ),
     );
   }
 }
