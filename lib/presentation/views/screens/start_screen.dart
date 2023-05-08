@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../app/app_constants.dart';
 import '../../../app/resources/colors/color_manager.dart';
 import '../../../app/resources/values/app_size.dart';
+import 'home/favory/favorite_screen.dart';
 import 'home/home_screen.dart';
 import 'home/cart_screen.dart';
 
@@ -21,8 +22,7 @@ class StartScreenState extends State<StartScreen> {
     const HomeScreen(),
     Container(),
     // DiscoverScreen(),
-    Container(),
-    // FavoryScreen(),
+    const FavoriteScreen(),
     //Container(),
     // EmptyCartScreen(), // if Cart is empty
     const CartScreen(),

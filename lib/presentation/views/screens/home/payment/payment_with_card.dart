@@ -3,7 +3,6 @@ import 'package:flutter_credit_card/flutter_credit_card.dart';
 
 import '../../../../../app/resources/routes/routes_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
-import '../../../widgets/home/categories.dart';
 import '../../../widgets/main_button.dart';
 
 class PaymentWithCard extends StatefulWidget {

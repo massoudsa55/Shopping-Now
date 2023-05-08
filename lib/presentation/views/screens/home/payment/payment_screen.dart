@@ -30,7 +30,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.symmetric(vertical: AppSize.s16),
+              padding: const EdgeInsets.symmetric(vertical: AppSize.s20),
               sliver: SliverToBoxAdapter(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

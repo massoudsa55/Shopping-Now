@@ -4,29 +4,29 @@ import 'package:shopping_now/app/extensions.dart';
 
 import '../../../../../app/resources/colors/color_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
+import '../../../../../domain/models/product_model.dart';
 import '../network_image_with_loader.dart';
 
-class OrderCard extends StatelessWidget {
-  const OrderCard({
+class FavoriteCard extends StatelessWidget {
+  const FavoriteCard({
     Key? key,
-    required this.image,
-    required this.brandName,
-    required this.title,
-    required this.price,
-    this.priceAfetDiscount,
-    this.dicountpercent,
+    required this.productModel,
     required this.press,
-    this.child = const SizedBox(),
+    required this.animation,
   }) : super(key: key);
-  final String image, brandName, title;
-  final double price;
-  final double? priceAfetDiscount;
-  final int? dicountpercent;
+  final ProductModel productModel;
   final VoidCallback press;
-  final Widget child;
+  final Animation<double> animation;
 
   @override
   Widget build(BuildContext context) {
+    return SizeTransition(
+      sizeFactor: animation,
+      child: buildFavoriteProduct(context),
+    );
+  }
+
+  Widget buildFavoriteProduct(BuildContext context) {
     return Container(
       height: 70.h,
       width: double.infinity,
@@ -40,7 +40,8 @@ class OrderCard extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 1.w,
-            child: NetworkImageWithLoader(image, radius: AppSize.s12),
+            child:
+                NetworkImageWithLoader(productModel.image, radius: AppSize.s12),
           ),
           Expanded(
             child: Padding(
@@ -53,14 +54,14 @@ class OrderCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        brandName.toUpperCase(),
+                        productModel.brandName.toUpperCase(),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       const SizedBox(height: AppSize.s8),
                       SizedBox(
                         width: context.width * 0.4,
                         child: Text(
-                          title,
+                          productModel.title,
                           maxLines: AppSize.s2.toInt(),
                           overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
@@ -70,11 +71,11 @@ class OrderCard extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      priceAfetDiscount != null
+                      productModel.priceAfetDiscount != null
                           ? Row(
                               children: [
                                 Text(
-                                  "\$$priceAfetDiscount",
+                                  "\$${productModel.priceAfetDiscount}",
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
@@ -82,7 +83,7 @@ class OrderCard extends StatelessWidget {
                                 ),
                                 const SizedBox(width: AppSize.s16 / 4),
                                 Text(
-                                  "\$$price",
+                                  "\$${productModel.price}",
                                   style: TextStyle(
                                     color: Theme.of(context)
                                         .textTheme
@@ -95,7 +96,7 @@ class OrderCard extends StatelessWidget {
                               ],
                             )
                           : Text(
-                              "\$$price",
+                              "\$${productModel.price}",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -103,7 +104,10 @@ class OrderCard extends StatelessWidget {
                             ),
                     ],
                   ),
-                  child,
+                  IconButton(
+                    onPressed: press,
+                    icon: Icon(Icons.delete, color: ColorManager.error),
+                  ),
                 ],
               ),
             ),

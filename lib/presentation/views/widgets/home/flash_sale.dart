@@ -39,13 +39,7 @@ class FlashSale extends StatelessWidget {
                     index == demoFlashSaleProducts.length - 1 ? AppSize.s16 : 0,
               ),
               child: ProductCard(
-                image: demoFlashSaleProducts[index].image,
-                brandName: demoFlashSaleProducts[index].brandName,
-                title: demoFlashSaleProducts[index].title,
-                price: demoFlashSaleProducts[index].price,
-                priceAfetDiscount:
-                    demoFlashSaleProducts[index].priceAfetDiscount,
-                dicountpercent: demoFlashSaleProducts[index].dicountpercent,
+                product: demoFlashSaleProducts[index],
                 press: () {},
               ),
             ),

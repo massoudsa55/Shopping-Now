@@ -4,8 +4,6 @@ import 'package:equatable/equatable.dart';
 import 'package:shopping_now/domain/models/product_model.dart';
 import 'package:shopping_now/domain/models/user_model.dart';
 
-import '../../app/app_constants.dart';
-
 class OrderModel extends Equatable {
   final String id;
   final UserModel user;

@@ -33,12 +33,7 @@ class PopularProducts extends StatelessWidget {
                     index == demoPopularProducts.length - 1 ? AppSize.s16 : 0,
               ),
               child: ProductCard(
-                image: demoPopularProducts[index].image,
-                brandName: demoPopularProducts[index].brandName,
-                title: demoPopularProducts[index].title,
-                price: demoPopularProducts[index].price,
-                priceAfetDiscount: demoPopularProducts[index].priceAfetDiscount,
-                dicountpercent: demoPopularProducts[index].dicountpercent,
+                product: demoPopularProducts[index],
                 press: () {},
               ),
             ),

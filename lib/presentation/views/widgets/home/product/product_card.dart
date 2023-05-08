@@ -3,23 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../../../app/app_constants.dart';
 import '../../../../../app/resources/colors/color_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
+import '../../../../../domain/models/product_model.dart';
 import '../network_image_with_loader.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
-    required this.image,
-    required this.brandName,
-    required this.title,
-    required this.price,
-    this.priceAfetDiscount,
-    this.dicountpercent,
+    required this.product,
     required this.press,
   }) : super(key: key);
-  final String image, brandName, title;
-  final double price;
-  final double? priceAfetDiscount;
-  final int? dicountpercent;
+  final ProductModel product;
   final VoidCallback press;
 
   @override
@@ -28,6 +21,7 @@ class ProductCard extends StatelessWidget {
     Size size = Size(mediaQuery.size.width / 3, mediaQuery.size.height / 3);
     return OutlinedButton(
       onPressed: press,
+      onLongPress: () {},
       style: OutlinedButton.styleFrom(
           minimumSize: size,
           maximumSize: size,
@@ -38,8 +32,8 @@ class ProductCard extends StatelessWidget {
             aspectRatio: AppSize.s1_15,
             child: Stack(
               children: [
-                NetworkImageWithLoader(image, radius: AppSize.s12),
-                if (dicountpercent != null)
+                NetworkImageWithLoader(product.image, radius: AppSize.s12),
+                if (product.dicountpercent != null)
                   Positioned(
                     right: AppSize.s8,
                     top: AppSize.s8,
@@ -54,7 +48,7 @@ class ProductCard extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
-                          "$dicountpercent% off",
+                          "${product.dicountpercent}% off",
                           style: Theme.of(context).textTheme.titleSmall,
                         ),
                       ),
@@ -71,7 +65,7 @@ class ProductCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    brandName.toUpperCase(),
+                    product.brandName.toUpperCase(),
                     style: Theme.of(context)
                         .textTheme
                         .titleSmall!
@@ -79,18 +73,18 @@ class ProductCard extends StatelessWidget {
                   ),
                   const SizedBox(height: AppSize.s8),
                   Text(
-                    title,
+                    product.title,
                     maxLines: AppSize.s2.toInt(),
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelSmall!.copyWith(
                         color: ColorManager.lightPrimary.withOpacity(0.7)),
                   ),
                   const Spacer(),
-                  priceAfetDiscount != null
+                  product.priceAfetDiscount != null
                       ? Row(
                           children: [
                             Text(
-                              "\$$priceAfetDiscount",
+                              "\$${product.priceAfetDiscount}",
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -98,7 +92,7 @@ class ProductCard extends StatelessWidget {
                             ),
                             const SizedBox(width: AppSize.s16 / 4),
                             Text(
-                              "\$$price",
+                              "\$${product.price}",
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
@@ -111,7 +105,7 @@ class ProductCard extends StatelessWidget {
                           ],
                         )
                       : Text(
-                          "\$$price",
+                          "\$${product.price}",
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall!

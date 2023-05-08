@@ -193,3 +193,52 @@ List<ProductModel> kidsProducts = [
     price: 250,
   ),
 ];
+
+List<ProductModel> kFavorateProducts = [
+  const ProductModel(
+    id: "prd004",
+    image: "https://i.imgur.com/dbbT6PA.png",
+    title: "Green Poplin Ruched Front",
+    brandName: "Lipsy london",
+    price: 650.62,
+    priceAfetDiscount: 590.36,
+    dicountpercent: 24,
+  ),
+  const ProductModel(
+    id: "prd005",
+    image: "https://i.imgur.com/7fSxC7k.png",
+    title: "Printed Sleeveless Tiered Swing Dress",
+    brandName: "Lipsy london",
+    price: 650.62,
+  ),
+  const ProductModel(
+    id: "prd006",
+    image: "https://i.imgur.com/pXnYE9Q.png",
+    title: "Ruffle-Sleeve Ponte-Knit Sheath ",
+    brandName: "Lipsy london",
+    price: 400,
+  ),
+  const ProductModel(
+    id: "prd007",
+    image: "https://i.imgur.com/V1MXgfa.png",
+    title: "Green Mountain Beta Warehouse",
+    brandName: "Lipsy london",
+    price: 400,
+    priceAfetDiscount: 360,
+    dicountpercent: 20,
+  ),
+  const ProductModel(
+    id: "prd008",
+    image: "https://i.imgur.com/8gvE5Ss.png",
+    title: "Printed Sleeveless Tiered Swing Dress",
+    brandName: "Lipsy london",
+    price: 654,
+  ),
+  const ProductModel(
+    id: "prd009",
+    image: "https://i.imgur.com/cBvB5YB.png",
+    title: "Mountain Beta Warehouse",
+    brandName: "Lipsy london",
+    price: 250,
+  ),
+];
