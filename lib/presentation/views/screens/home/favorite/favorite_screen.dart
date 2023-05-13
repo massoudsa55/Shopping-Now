@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../app/resources/colors/color_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../../../domain/models/favorate_model.dart';
 import '../../../widgets/home/product/favorie_card.dart';
-import '../../../widgets/home/product/order_product.dart';
 
 class FavoriteScreen extends StatefulWidget {
   const FavoriteScreen({super.key});
