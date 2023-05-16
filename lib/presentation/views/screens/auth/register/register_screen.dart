@@ -5,20 +5,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shopping_now/app/extensions.dart';
 
+import '../../../../../app/resources/colors/color_manager.dart';
 import '../../../../../app/resources/routes/routes_manager.dart';
 import '../../../widgets/main_button.dart';
 import '../../../../../app/resources/assets/image_assets.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../widgets/auth/login_form.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   // final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -46,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   FadeInDown(
                     duration: const Duration(milliseconds: 800),
                     child: Text(
-                      "Welcome back!",
+                      "Let's get started!",
                       style: Theme.of(context).textTheme.headline5,
                     ),
                   ),
@@ -54,17 +55,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   FadeInDown(
                     duration: const Duration(milliseconds: 800),
                     child: const Text(
-                      "Log in with your data that you intered during your registration.",
+                      "Please enter your valid data in order to create an acount.",
                     ),
                   ),
                   const SizedBox(height: AppSize.s20),
                   FadeInDown(child: LogInForm(formKey: _formKey)),
                   FadeIn(
-                    child: Align(
-                      child: TextButton(
-                        child: const Text("Forgot password"),
-                        onPressed: () {},
-                      ),
+                    child: Row(
+                      children: [
+                        Checkbox(
+                          value: true,
+                          onChanged: (value) {},
+                          activeColor: ColorManager.green,
+                        ),
+                        const Text("I agree with the"),
+                        TextButton(
+                          child: const Text("Terms of services"),
+                          onPressed: () {},
+                        ),
+                        const Text("& privacy policy."),
+                      ],
                     ),
                   ),
                   SizedBox(
@@ -73,17 +83,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         : AppSize.s20,
                   ),
                   MainButton(
-                    text: "Log in",
+                    text: "Continue",
                     press: () async {
                       if (_formKey.currentState!.validate()) {
-                        // Navigator.pushNamedAndRemoveUntil(context, entryPointScreenRoute,ModalRoute.withName(logInScreenRoute));
-                        /*await _auth
-                .createUserWithEmailAndPassword(
-                    email: "massoudsa55@gmail.com",
-                    password: "password")
-                .then((value) => print(value));*/
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => const StartScreen()));
                         context.pushNamedAndRemoveUntil(
                             AppRoutes.startScreenRoute);
                       }
@@ -92,13 +94,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("Don't have an account?"),
+                      const Text("Do you have an account?"),
                       TextButton(
                         onPressed: () {
-                          context.pushReplacementNamed(
-                              AppRoutes.registerScreenRoute);
+                          context
+                              .pushReplacementNamed(AppRoutes.loginScreenRoute);
                         },
-                        child: const Text("Sign up"),
+                        child: const Text("Sign in"),
                       )
                     ],
                   ),

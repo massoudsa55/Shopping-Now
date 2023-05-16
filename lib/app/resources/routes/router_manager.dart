@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../presentation/views/screens/auth/login/login_screen.dart';
+import '../../../presentation/views/screens/auth/register/register_screen.dart';
 import '../../../presentation/views/screens/home/home_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_success_screen.dart';
@@ -18,6 +19,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const OnBoarding());
       case AppRoutes.loginScreenRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case AppRoutes.registerScreenRoute:
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case AppRoutes.homeScreenRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case AppRoutes.startScreenRoute:

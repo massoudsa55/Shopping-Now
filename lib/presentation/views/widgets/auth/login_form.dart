@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../app/app_constants.dart';
 import '../../../../app/resources/assets/icon_assets.dart';
 import '../../../../app/resources/values/app_size.dart';
 
@@ -22,19 +24,17 @@ class LogInForm extends StatelessWidget {
             onSaved: (emal) {
               // Email
             },
-            // TODO: implement this
-            // validator: emaildValidator,
+            validator: emaildValidator,
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               hintText: "Email address",
               prefixIcon: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: AppSize.s20 * 0.75),
+                padding: const EdgeInsets.symmetric(vertical: AppSize.s16),
                 child: SvgPicture.asset(
                   IconAssets.loginMessage,
-                  height: 24,
-                  width: 24,
+                  height: 22.h,
+                  width: 22.w,
                   color: Theme.of(context)
                       .textTheme
                       .bodyText1!
@@ -49,18 +49,16 @@ class LogInForm extends StatelessWidget {
             onSaved: (pass) {
               // Password
             },
-            // TODO: implement this
-            // validator: passwordValidator,
+            validator: passwordValidator,
             obscureText: true,
             decoration: InputDecoration(
               hintText: "Password",
               prefixIcon: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: AppSize.s20 * 0.75),
+                padding: const EdgeInsets.symmetric(vertical: AppSize.s16),
                 child: SvgPicture.asset(
                   IconAssets.loginLock,
-                  height: 24,
-                  width: 24,
+                  height: 22.h,
+                  width: 22.w,
                   color: Theme.of(context)
                       .textTheme
                       .bodyText1!

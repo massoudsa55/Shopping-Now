@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/routes/routes_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../widgets/home/product/secondary_order_card.dart';
 import '../../widgets/home/review_all_orders.dart';
-import '../../widgets/home/title_of_items.dart';
 import '../../widgets/main_button.dart';
 
 class CartScreen extends StatelessWidget {

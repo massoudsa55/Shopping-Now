@@ -76,7 +76,7 @@ const double defaultPadding = 16.0;
 const double defaultBorderRadious = 12.0;
 const Duration defaultDuration = Duration(milliseconds: 300);
 const Duration onboardingDuration = Duration(milliseconds: 900);
-const onboardingCurve = Curves.easeInOut;
+const onboardingCurve = Curves.linearToEaseOut;
 
 // use form field validator package
 final passwordValidator = MultiValidator([

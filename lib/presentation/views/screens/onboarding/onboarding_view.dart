@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -134,39 +135,42 @@ class OnBoardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      padding: const EdgeInsets.symmetric(
-          vertical: AppSize.s10, horizontal: AppSize.s10),
-      margin: const EdgeInsets.symmetric(
-          vertical: AppSize.s10, horizontal: AppSize.s10),
-      child: Column(
-        children: [
-          SizedBox(
-            // width: AppSize.s20 * 15,
-            height: size.height * 0.35,
-            child: SvgPicture.asset(onBoardingModel.image),
-            // child: Image.asset(onBoardingModel.image),
-          ),
-          const SizedBox(height: AppSize.s20),
-          Padding(
-            padding: const EdgeInsets.all(AppSize.s8),
-            child: Text(
-              onBoardingModel.title,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                    color: ColorManager.primary,
-                  ),
+    return FadeInDown(
+      duration: const Duration(milliseconds: 800),
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+            vertical: AppSize.s10, horizontal: AppSize.s10),
+        margin: const EdgeInsets.symmetric(
+            vertical: AppSize.s10, horizontal: AppSize.s10),
+        child: Column(
+          children: [
+            SizedBox(
+              // width: AppSize.s20 * 15,
+              height: size.height * 0.35,
+              child: SvgPicture.asset(onBoardingModel.image),
+              // child: Image.asset(onBoardingModel.image),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(AppSize.s8),
-            child: Text(
-              onBoardingModel.subTitle,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleMedium,
+            const SizedBox(height: AppSize.s20),
+            Padding(
+              padding: const EdgeInsets.all(AppSize.s8),
+              child: Text(
+                onBoardingModel.title,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                      color: ColorManager.primary,
+                    ),
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(AppSize.s8),
+              child: Text(
+                onBoardingModel.subTitle,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
