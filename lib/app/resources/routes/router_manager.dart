@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../presentation/views/screens/auth/login/login_screen.dart';
 import '../../../presentation/views/screens/auth/register/register_screen.dart';
+import '../../../presentation/views/screens/home/discover/category_of_discover.dart';
 import '../../../presentation/views/screens/home/home_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_success_screen.dart';
@@ -29,6 +30,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const PaymentScreen());
       case AppRoutes.paymentSuccessScreenRoute:
         return MaterialPageRoute(builder: (_) => const PaymentSuccessScreen());
+      // case AppRoutes.categoryOfDiscoverScreenRoute:
+      //   return MaterialPageRoute(
+      //       builder: (_) => const CategoryOfDiscoverScreen(categoryName: ""));
       default:
         return unDefinedRoute();
     }

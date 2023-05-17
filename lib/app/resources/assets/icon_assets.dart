@@ -11,4 +11,6 @@ class IconAssets {
   static String manAndWoman = "$baseImages/man_and_woman.svg";
   static String kids = "$baseImages/child.svg";
   static String arrowDown = "$baseImages/arrow_down.svg";
+  static String arrowTop = "$baseImages/arrow_top.svg";
+  static String bagFull = "$baseImages/bag_full.svg";
 }

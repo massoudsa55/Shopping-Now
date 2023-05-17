@@ -9,4 +9,6 @@ class AppRoutes {
   static const String startScreenRoute = '/startScreen';
   static const String paymentScreenRoute = '/paymentScreen';
   static const String paymentSuccessScreenRoute = '/paymentSuccessScreen';
+  static const String categoryOfDiscoverScreenRoute =
+      '/categoryOfDiscoverScreen';
 }
