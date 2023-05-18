@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/app_constants.dart';
 import '../../../../app/resources/values/app_size.dart';
@@ -21,9 +22,9 @@ class CartButton extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(
-            horizontal: AppSize.s16, vertical: defaultBorderRadious / 2),
+            horizontal: AppSize.s16, vertical: AppSize.s6),
         child: SizedBox(
-          height: 64,
+          height: 62.h,
           child: Material(
             color: primaryColor,
             clipBehavior: Clip.hardEdge,

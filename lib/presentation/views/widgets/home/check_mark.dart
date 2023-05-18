@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../app/app_constants.dart';
+import '../../../../app/resources/values/app_size.dart';
 
 class CheckMark extends StatelessWidget {
   const CheckMark({
     Key? key,
-    this.radious = 8,
+    this.radious = AppSize.s8,
     this.activeColor = primaryColor,
     this.iconColor = Colors.white,
-    this.padding = const EdgeInsets.all(2),
+    this.padding = const EdgeInsets.all(AppSize.s2),
   }) : super(key: key);
   final double radious;
   final Color activeColor, iconColor;

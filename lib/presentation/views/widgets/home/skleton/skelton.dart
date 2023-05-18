@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../app/resources/values/app_size.dart';
 
@@ -14,7 +15,7 @@ class Skeleton extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      padding: const EdgeInsets.all(AppSize.s16 / 2),
+      padding: const EdgeInsets.all(AppSize.s8),
       decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.04 * layer),
           borderRadius: const BorderRadius.all(Radius.circular(AppSize.s16))),
@@ -25,13 +26,13 @@ class Skeleton extends StatelessWidget {
 class CircleSkeleton extends StatelessWidget {
   const CircleSkeleton({Key? key, this.size = 24}) : super(key: key);
 
-  final double? size;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size,
-      width: size,
+      height: size.h,
+      width: size.w,
       // padding: const EdgeInsets.all(AppSize.s16),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor.withOpacity(0.04),

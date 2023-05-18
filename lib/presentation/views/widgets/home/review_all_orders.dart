@@ -38,13 +38,7 @@ class ReviewAllOrders extends StatelessWidget {
                 horizontal: AppSize.s20,
               ),
               child: OrderCard(
-                image: demoListOrders[index].product.image,
-                brandName: demoListOrders[index].product.brandName,
-                title: demoListOrders[index].product.title,
-                price: demoListOrders[index].product.price,
-                priceAfetDiscount:
-                    demoListOrders[index].product.priceAfetDiscount,
-                dicountpercent: demoListOrders[index].product.dicountpercent,
+                productModel: demoListOrders[index].product,
                 press: () {},
               ),
             ),

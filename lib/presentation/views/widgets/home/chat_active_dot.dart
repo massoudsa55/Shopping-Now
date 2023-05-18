@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../app/app_constants.dart';
 
@@ -12,8 +13,8 @@ class ChatActiveDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 12,
-      width: 12,
+      height: 12.h,
+      width: 12.w,
       decoration: BoxDecoration(
         color: dotColor,
         shape: BoxShape.circle,

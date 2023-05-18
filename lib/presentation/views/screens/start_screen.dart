@@ -19,7 +19,7 @@ class StartScreen extends StatefulWidget {
 }
 
 class StartScreenState extends State<StartScreen> {
-  final List _pages = [
+  final List<Widget> _pages = [
     const HomeScreen(),
     const DiscoverScreen(),
     const FavoriteScreen(),
@@ -45,40 +45,7 @@ class StartScreenState extends State<StartScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        // pinned: true,
-        // floating: true,
-        // snap: true,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        leading: const SizedBox(),
-        leadingWidth: 0,
-        centerTitle: false,
-        title: SvgPicture.asset(
-          "assets/icons/shoplon.svg",
-          color: Theme.of(context).iconTheme.color,
-          height: 20,
-          width: 100,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              "assets/icons/search.svg",
-              height: 24,
-              color: Theme.of(context).textTheme.bodyText1!.color,
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              "assets/icons/notification.svg",
-              height: 24,
-              color: Theme.of(context).textTheme.bodyText1!.color,
-            ),
-          ),
-        ],
-        elevation: AppSize.s0,
-      ),
+      appBar: buildAppBar(context),
       // body: _pages[_currentIndex],
       body: PageTransitionSwitcher(
         duration: defaultDuration,
@@ -110,7 +77,7 @@ class StartScreenState extends State<StartScreen> {
               : const Color(0xFF101015),
           type: BottomNavigationBarType.fixed,
           // selectedLabelStyle: TextStyle(color: primaryColor),
-          selectedFontSize: 12,
+          selectedFontSize: 12.sp,
           selectedItemColor: ColorManager.primary,
           unselectedItemColor: Colors.transparent,
           items: [
@@ -147,6 +114,43 @@ class StartScreenState extends State<StartScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      // pinned: true,
+      // floating: true,
+      // snap: true,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      leading: const SizedBox(),
+      leadingWidth: 0,
+      centerTitle: false,
+      title: SvgPicture.asset(
+        "assets/icons/shoplon.svg",
+        color: Theme.of(context).iconTheme.color,
+        height: 20.h,
+        width: 100.w,
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            "assets/icons/search.svg",
+            height: 24.h,
+            color: Theme.of(context).textTheme.bodyText1!.color,
+          ),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            "assets/icons/notification.svg",
+            height: 24.h,
+            color: Theme.of(context).textTheme.bodyText1!.color,
+          ),
+        ),
+      ],
+      elevation: AppSize.s0,
     );
   }
 }
