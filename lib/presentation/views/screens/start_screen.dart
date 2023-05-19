@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../app/resources/assets/icon_assets.dart';
 import '../../../app/app_constants.dart';
 import '../../../app/resources/colors/color_manager.dart';
 import '../../../app/resources/values/app_size.dart';
@@ -23,7 +24,6 @@ class StartScreenState extends State<StartScreen> {
     const HomeScreen(),
     const DiscoverScreen(),
     const FavoriteScreen(),
-    //Container(),
     // EmptyCartScreen(), // if Cart is empty
     const CartScreen(),
     Container(),
@@ -82,33 +82,31 @@ class StartScreenState extends State<StartScreen> {
           unselectedItemColor: Colors.transparent,
           items: [
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/shop.svg"),
-              activeIcon:
-                  svgIcon("assets/icons/shop.svg", color: ColorManager.primary),
+              icon: svgIcon(IconAssets.shop),
+              activeIcon: svgIcon(IconAssets.shop, color: ColorManager.primary),
               label: "Shop",
             ),
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/category.svg"),
-              activeIcon: svgIcon("assets/icons/category.svg",
-                  color: ColorManager.primary),
+              icon: svgIcon(IconAssets.category),
+              activeIcon:
+                  svgIcon(IconAssets.category, color: ColorManager.primary),
               label: "Discover",
             ),
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/heart.svg"),
-              activeIcon: svgIcon("assets/icons/heart.svg",
-                  color: ColorManager.primary),
+              icon: svgIcon(IconAssets.heart),
+              activeIcon:
+                  svgIcon(IconAssets.heart, color: ColorManager.primary),
               label: "Favory",
             ),
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/bag.svg"),
-              activeIcon:
-                  svgIcon("assets/icons/bag.svg", color: ColorManager.primary),
+              icon: svgIcon(IconAssets.bag),
+              activeIcon: svgIcon(IconAssets.bag, color: ColorManager.primary),
               label: "Cart",
             ),
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/profile.svg"),
-              activeIcon: svgIcon("assets/icons/profile.svg",
-                  color: ColorManager.primary),
+              icon: svgIcon(IconAssets.profile),
+              activeIcon:
+                  svgIcon(IconAssets.profile, color: ColorManager.primary),
               label: "Profile",
             ),
           ],
