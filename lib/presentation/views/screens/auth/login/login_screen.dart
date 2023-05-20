@@ -1,10 +1,9 @@
 import 'package:animate_do/animate_do.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shopping_now/app/extensions.dart';
 
+import '../../../../../app/extensions.dart';
 import '../../../../../app/resources/routes/routes_manager.dart';
 import '../../../widgets/main_button.dart';
 import '../../../../../app/resources/assets/image_assets.dart';

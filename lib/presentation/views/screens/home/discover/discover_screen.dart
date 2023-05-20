@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shopping_now/app/extensions.dart';
 
+import '../../../../../app/extensions.dart';
 import '../../../../../app/resources/assets/icon_assets.dart';
 import '../../../../../app/resources/colors/color_manager.dart';
-import '../../../../../app/resources/routes/routes_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../widgets/home/title_of_items.dart';
 import '../../../widgets/home/discover/list_of_categories.dart';
@@ -76,11 +75,12 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                                   categoryName: "On Sale"));
                             }),
                         childOfCategoryList(
-                            title: "Jeans",
-                            onTap: () {
-                              context.push(const CategoryOfDiscoverScreen(
-                                  categoryName: "On Sale"));
-                            }),
+                          title: "Jeans",
+                          onTap: () {
+                            context.push(const CategoryOfDiscoverScreen(
+                                categoryName: "On Sale"));
+                          },
+                        ),
                       ],
                     ),
                     ListOfCategories(
