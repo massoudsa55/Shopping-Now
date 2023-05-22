@@ -42,7 +42,7 @@ AppBar buildAppBar(BuildContext context, String categoryName) {
     // floating: true,
     // snap: true,
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-    leading: BackButton(color: ColorManager.grey),
+    leading: const BackButton(color: ColorManager.grey),
     leadingWidth: 0,
     centerTitle: false,
 
@@ -50,7 +50,7 @@ AppBar buildAppBar(BuildContext context, String categoryName) {
       padding: const EdgeInsets.symmetric(horizontal: AppSize.s30),
       child: TitleOfItems(title: categoryName, fontSize: AppSize.s20.sp),
     ),
-    systemOverlayStyle: SystemUiOverlayStyle(
+    systemOverlayStyle: const SystemUiOverlayStyle(
       statusBarColor: ColorManager.darkGrey,
       statusBarBrightness: Brightness.dark,
     ),

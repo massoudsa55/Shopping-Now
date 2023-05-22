@@ -6,6 +6,8 @@ import 'package:lottie/lottie.dart';
 import 'package:shopping_now/app/extensions.dart';
 
 import '../../../../app/app_constants.dart';
+import '../../../../app/resources/assets/icon_assets.dart';
+import '../../../../app/resources/assets/image_assets.dart';
 import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/routes/routes_manager.dart';
 
@@ -45,11 +47,13 @@ class _SplashScreenState extends State<SplashScreen> {
           SizedBox(
             height: context.height,
             width: context.width,
-            child: Lottie.asset("assets/images/splash_screen.json"),
+            child: Lottie.asset(
+              ImageAssets.splashScreenLogo,
+              fit: BoxFit.cover,
+            ),
           ),
           SvgPicture.asset(
-            "assets/icons/shoplon.svg",
-            // width: 200.w,
+            IconAssets.shoplon,
             width: context.width * 0.6,
             color: ColorManager.primary,
           ),

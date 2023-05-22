@@ -1,4 +1,3 @@
-import 'package:dots_indicator/dots_indicator.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
@@ -6,10 +5,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../app/app_constants.dart';
+import '../../../../app/extensions.dart';
 import '../../../../app/resources/colors/color_manager.dart';
 import '../../../../app/resources/values/app_size.dart';
 import '../../../../domain/models/models.dart';
 import '../../../viewmodels/onboarding_viewmodel.dart';
+import '../../widgets/home/dot_indicators.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -51,7 +52,6 @@ class _OnBoardingState extends State<OnBoarding> {
   }
 
   Widget getOnBoardingScreen(SliderViewObject? sliderViewObject) {
-    Size size = MediaQuery.of(context).size;
     if (sliderViewObject == null) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -60,7 +60,7 @@ class _OnBoardingState extends State<OnBoarding> {
       appBar: AppBar(
         backgroundColor: ColorManager.white,
         elevation: 0.0,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: ColorManager.darkGrey,
           statusBarBrightness: Brightness.dark,
         ),
@@ -83,22 +83,28 @@ class _OnBoardingState extends State<OnBoarding> {
               padding: const EdgeInsets.symmetric(vertical: AppSize.s20),
               child: Column(
                 children: [
-                  DotsIndicator(
-                    dotsCount: sliderViewObject.numOfSlides,
-                    position: sliderViewObject.currentIndex.toDouble(),
-                    decorator: DotsDecorator(
-                      size: const Size.square(AppSize.s8),
-                      activeSize: const Size(AppSize.s8, AppSize.s20),
-                      activeShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSize.s4)),
-                      spacing:
-                          const EdgeInsets.symmetric(horizontal: AppSize.s4),
+                  FittedBox(
+                    child: Row(
+                      children: List.generate(
+                        sliderViewObject.numOfSlides,
+                        (index) => Padding(
+                          padding:
+                              const EdgeInsets.symmetric(horizontal: AppSize.s4),
+                          child: DotIndicator(
+                            activeHeight: AppSize.s18,
+                            inActiveHeight: AppSize.s6,
+                            width: AppSize.s6,
+                            isActive:
+                                index == sliderViewObject.currentIndex.toDouble(),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  SizedBox(height: size.height * 0.05),
+                  SizedBox(height: context.height * 0.05),
                   SizedBox(
-                    width: size.width * 0.7,
-                    height: size.height * 0.06,
+                    width: context.width * 0.7,
+                    height: context.height * 0.06,
                     child: ElevatedButton(
                       onPressed: () {
                         _pageController.animateToPage(_viewModel.next(context),

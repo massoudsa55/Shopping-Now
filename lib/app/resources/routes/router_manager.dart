@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../presentation/views/screens/auth/login/login_screen.dart';
 import '../../../presentation/views/screens/auth/register/register_screen.dart';
-import '../../../presentation/views/screens/home/discover/category_of_discover.dart';
 import '../../../presentation/views/screens/home/home_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_success_screen.dart';
@@ -39,7 +38,22 @@ class AppRouter {
   }
 
   static Route unDefinedRoute() {
-    // TODO: create this page for not found
-    return MaterialPageRoute(builder: (_) => const Scaffold());
+    return MaterialPageRoute(builder: (_) => const NoThing());
   }
+}
+
+class NoThing extends Widget {
+  const NoThing({super.key});
+  @override
+  Element createElement() => _NoThingElement(this);
+}
+
+class _NoThingElement extends Element {
+  _NoThingElement(super.widget);
+
+  @override
+  bool get debugDoingBuild => false;
+
+  @override
+  void performRebuild() {}
 }

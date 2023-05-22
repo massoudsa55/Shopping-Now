@@ -125,7 +125,7 @@ class StartScreenState extends State<StartScreen> {
       leadingWidth: 0,
       centerTitle: false,
       title: SvgPicture.asset(
-        "assets/icons/shoplon.svg",
+        IconAssets.shoplon,
         color: Theme.of(context).iconTheme.color,
         height: 20.h,
         width: 100.w,
@@ -134,7 +134,7 @@ class StartScreenState extends State<StartScreen> {
         IconButton(
           onPressed: () {},
           icon: SvgPicture.asset(
-            "assets/icons/search.svg",
+            IconAssets.search,
             height: 24.h,
             color: Theme.of(context).textTheme.bodyText1!.color,
           ),
@@ -142,7 +142,7 @@ class StartScreenState extends State<StartScreen> {
         IconButton(
           onPressed: () {},
           icon: SvgPicture.asset(
-            "assets/icons/notification.svg",
+            IconAssets.notification,
             height: 24.h,
             color: Theme.of(context).textTheme.bodyText1!.color,
           ),

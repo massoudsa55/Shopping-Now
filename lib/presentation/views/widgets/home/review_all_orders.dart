@@ -15,8 +15,8 @@ class ReviewAllOrders extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(
+        const Padding(
+          padding: EdgeInsets.only(
             left: AppSize.s20,
             top: AppSize.s20,
             bottom: AppSize.s8,

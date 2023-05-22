@@ -97,13 +97,14 @@ class _OffersCarouselState extends State<OffersCarousel> {
             child: Padding(
               padding: const EdgeInsets.all(AppSize.s16),
               child: SizedBox(
-                height: 16.h,
+                height: AppSize.s16.h,
                 child: Row(
                   children: List.generate(
                     offers.length,
                     (index) {
                       return Padding(
-                        padding: const EdgeInsets.only(left: AppSize.s4),
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: AppSize.s4),
                         child: DotIndicator(
                           isActive: index == _selectedIndex,
                           activeColor: Colors.white70,
