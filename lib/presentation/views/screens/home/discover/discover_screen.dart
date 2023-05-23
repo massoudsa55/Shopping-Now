@@ -30,8 +30,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const FilterFormField(),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: AppSize.s20),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: AppSize.s20),
                 child: TitleOfItems(
                   title: "Categories",
                   fontColor: ColorManager.black,
