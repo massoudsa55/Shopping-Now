@@ -2,15 +2,18 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shopping_now/app/extensions.dart';
 
 import '../../../app/resources/assets/icon_assets.dart';
 import '../../../app/app_constants.dart';
 import '../../../app/resources/colors/color_manager.dart';
+import '../../../app/resources/routes/routes_manager.dart';
 import '../../../app/resources/values/app_size.dart';
 import 'home/discover/discover_screen.dart';
 import 'home/favorite/favorite_screen.dart';
 import 'home/home_screen.dart';
 import 'home/cart_screen.dart';
+import 'home/profile/profile_screen.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({Key? key}) : super(key: key);
@@ -26,8 +29,7 @@ class StartScreenState extends State<StartScreen> {
     const FavoriteScreen(),
     // EmptyCartScreen(), // if Cart is empty
     const CartScreen(),
-    Container(),
-    // ProfileScreen(),
+    const ProfileScreen(),
   ];
   int _currentIndex = 0;
 
@@ -132,7 +134,9 @@ class StartScreenState extends State<StartScreen> {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(AppRoutes.searchScreenRoute);
+          },
           icon: SvgPicture.asset(
             IconAssets.search,
             height: 24.h,

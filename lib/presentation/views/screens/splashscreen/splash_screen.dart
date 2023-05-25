@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
           SvgPicture.asset(
             IconAssets.shoplon,
             width: context.width * 0.6,
-            color: ColorManager.primary,
+            color: ColorManager.darkGrey,
           ),
         ],
       ),

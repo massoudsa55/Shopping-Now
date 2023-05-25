@@ -78,25 +78,23 @@ class _OnBoardingState extends State<OnBoarding> {
                 onBoardingModel: sliderViewObject.onBoardingModel),
           ),
           Positioned(
-            bottom: 0,
+            bottom: AppSize.s20,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: AppSize.s20),
               child: Column(
                 children: [
-                  FittedBox(
-                    child: Row(
-                      children: List.generate(
-                        sliderViewObject.numOfSlides,
-                        (index) => Padding(
-                          padding:
-                              const EdgeInsets.symmetric(horizontal: AppSize.s4),
-                          child: DotIndicator(
-                            activeHeight: AppSize.s18,
-                            inActiveHeight: AppSize.s6,
-                            width: AppSize.s6,
-                            isActive:
-                                index == sliderViewObject.currentIndex.toDouble(),
-                          ),
+                  Row(
+                    children: List.generate(
+                      sliderViewObject.numOfSlides,
+                      (index) => Padding(
+                        padding:
+                            const EdgeInsets.symmetric(horizontal: AppSize.s4),
+                        child: DotIndicator(
+                          activeHeight: AppSize.s16,
+                          inActiveHeight: AppSize.s6,
+                          width: AppSize.s6,
+                          isActive:
+                              index == sliderViewObject.currentIndex.toDouble(),
                         ),
                       ),
                     ),
@@ -148,34 +146,36 @@ class OnBoardingPage extends StatelessWidget {
             vertical: AppSize.s10, horizontal: AppSize.s10),
         margin: const EdgeInsets.symmetric(
             vertical: AppSize.s10, horizontal: AppSize.s10),
-        child: Column(
-          children: [
-            SizedBox(
-              // width: AppSize.s20 * 15,
-              height: size.height * 0.35,
-              child: SvgPicture.asset(onBoardingModel.image),
-              // child: Image.asset(onBoardingModel.image),
-            ),
-            const SizedBox(height: AppSize.s20),
-            Padding(
-              padding: const EdgeInsets.all(AppSize.s8),
-              child: Text(
-                onBoardingModel.title,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      color: ColorManager.primary,
-                    ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                // width: AppSize.s20 * 15,
+                height: size.height * 0.35,
+                child: SvgPicture.asset(onBoardingModel.image),
+                // child: Image.asset(onBoardingModel.image),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(AppSize.s8),
-              child: Text(
-                onBoardingModel.subTitle,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleMedium,
+              const SizedBox(height: AppSize.s20),
+              Padding(
+                padding: const EdgeInsets.all(AppSize.s8),
+                child: Text(
+                  onBoardingModel.title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                        color: ColorManager.primary,
+                      ),
+                ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.all(AppSize.s8),
+                child: Text(
+                  onBoardingModel.subTitle,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

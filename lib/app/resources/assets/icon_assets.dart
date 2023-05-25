@@ -20,4 +20,5 @@ class IconAssets {
   static String profile = "$baseIcons/profile.svg";
   static String shoplon = "$baseIcons/shoplon.svg";
   static String notification = "$baseIcons/notification.svg";
+  static String close = "$baseIcons/close.svg";
 }

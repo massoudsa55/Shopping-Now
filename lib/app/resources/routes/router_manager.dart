@@ -5,6 +5,7 @@ import '../../../presentation/views/screens/auth/register/register_screen.dart';
 import '../../../presentation/views/screens/home/home_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_screen.dart';
 import '../../../presentation/views/screens/home/payment/payment_success_screen.dart';
+import '../../../presentation/views/screens/home/search/search_screen.dart';
 import '../../../presentation/views/screens/splashscreen/splash_screen.dart';
 import '../../../presentation/views/screens/onboarding/onboarding_view.dart';
 import '../../../presentation/views/screens/start_screen.dart';
@@ -29,6 +30,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const PaymentScreen());
       case AppRoutes.paymentSuccessScreenRoute:
         return MaterialPageRoute(builder: (_) => const PaymentSuccessScreen());
+      case AppRoutes.searchScreenRoute:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
       // case AppRoutes.categoryOfDiscoverScreenRoute:
       //   return MaterialPageRoute(
       //       builder: (_) => const CategoryOfDiscoverScreen(categoryName: ""));

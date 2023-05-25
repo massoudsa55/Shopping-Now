@@ -10,10 +10,10 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          children: [
-            CircleAvatar(child: Image.asset("url")),
-            const SizedBox(height: AppSize.s16),
-            const Text("Full Name"),
+          children: const [
+            // CircleAvatar(child: Image.asset("url")),
+            SizedBox(height: AppSize.s16),
+            Text("Full Name"),
           ],
         ),
       ),
