@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../app/app_constants.dart';
+import '../../../../../app/extensions.dart';
 import '../../../../../app/resources/colors/color_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../../../domain/models/product_model.dart';
@@ -17,8 +19,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    Size size = Size(mediaQuery.size.width / 3, mediaQuery.size.height / 3);
+    final size = Size(context.width / 3, context.height / 3);
     return OutlinedButton(
       onPressed: press,
       onLongPress: () {},
@@ -29,18 +30,18 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: [
           AspectRatio(
-            aspectRatio: AppSize.s1_15,
+            aspectRatio: AppSize.s1_15.sp,
             child: Stack(
               children: [
                 NetworkImageWithLoader(product.image, radius: AppSize.s12),
                 if (product.dicountpercent != null)
                   Positioned(
-                    right: AppSize.s8,
-                    top: AppSize.s8,
+                    right: AppSize.s8.w,
+                    top: AppSize.s8.h,
                     child: Container(
                       padding:
                           const EdgeInsets.symmetric(horizontal: AppSize.s8),
-                      height: AppSize.s16,
+                      height: AppSize.s16.h,
                       decoration: const BoxDecoration(
                         color: errorColor,
                         borderRadius:
@@ -71,7 +72,7 @@ class ProductCard extends StatelessWidget {
                         .titleSmall!
                         .copyWith(color: ColorManager.grey),
                   ),
-                  const SizedBox(height: AppSize.s8),
+                  SizedBox(height: AppSize.s8.h),
                   Text(
                     product.title,
                     maxLines: AppSize.s2.toInt(),
@@ -90,7 +91,7 @@ class ProductCard extends StatelessWidget {
                                   .bodySmall!
                                   .copyWith(color: ColorManager.blue),
                             ),
-                            const SizedBox(width: AppSize.s16 / 4),
+                            SizedBox(width: AppSize.s4.w),
                             Text(
                               "\$${product.price}",
                               style: TextStyle(
@@ -98,7 +99,7 @@ class ProductCard extends StatelessWidget {
                                     .textTheme
                                     .bodyText2!
                                     .color,
-                                fontSize: AppSize.s10,
+                                fontSize: AppSize.s10.sp,
                                 decoration: TextDecoration.lineThrough,
                               ),
                             ),

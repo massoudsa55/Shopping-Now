@@ -25,23 +25,23 @@ class SearchScreen extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-        // pinned: true,
-        // floating: true,
-        // snap: true,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        leading: const SizedBox(),
-        leadingWidth: 0,
-        centerTitle: false,
-        title: SvgPicture.asset(
-          IconAssets.shoplon,
-          color: Theme.of(context).iconTheme.color,
-          height: 20.h,
-          width: 100.w,
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppSize.s16),
-            IconButton(
+      // pinned: true,
+      // floating: true,
+      // snap: true,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      leading: const SizedBox(),
+      leadingWidth: 0,
+      centerTitle: false,
+      title: SvgPicture.asset(
+        IconAssets.shoplon,
+        color: Theme.of(context).iconTheme.color,
+        height: 20.h,
+        width: 100.w,
+      ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppSize.s16),
+          child: IconButton(
             onPressed: () {},
             icon: SvgPicture.asset(
               IconAssets.close,
@@ -49,9 +49,9 @@ class SearchScreen extends StatelessWidget {
               color: Theme.of(context).textTheme.bodyText1!.color,
             ),
           ),
-      ),
-        ],
-        elevation: AppSize.s0,
+        ),
+      ],
+      elevation: AppSize.s0,
     );
   }
 }
