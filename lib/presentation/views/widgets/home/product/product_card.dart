@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:marquee/marquee.dart';
 
 import '../../../../../app/app_constants.dart';
 import '../../../../../app/extensions.dart';
@@ -19,7 +20,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = Size(context.width / 3, context.height / 3);
+    final size = Size(context.width / 3.w, context.height / 3.h);
     return OutlinedButton(
       onPressed: press,
       onLongPress: () {},
@@ -30,14 +31,14 @@ class ProductCard extends StatelessWidget {
       child: Column(
         children: [
           AspectRatio(
-            aspectRatio: AppSize.s1_15.sp,
+            aspectRatio: AppSize.s1_15,
             child: Stack(
               children: [
                 NetworkImageWithLoader(product.image, radius: AppSize.s12),
                 if (product.dicountpercent != null)
                   Positioned(
-                    right: AppSize.s8.w,
-                    top: AppSize.s8.h,
+                    right: AppSize.s8,
+                    top: AppSize.s8,
                     child: Container(
                       padding:
                           const EdgeInsets.symmetric(horizontal: AppSize.s8),
@@ -81,37 +82,39 @@ class ProductCard extends StatelessWidget {
                         color: ColorManager.lightPrimary.withOpacity(0.7)),
                   ),
                   const Spacer(),
-                  product.priceAfetDiscount != null
-                      ? Row(
-                          children: [
-                            Text(
-                              "\$${product.priceAfetDiscount}",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(color: ColorManager.blue),
+                  if (product.priceAfetDiscount != null)
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Marquee(
+                            text: "\$${product.priceAfetDiscount}",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(color: ColorManager.blue),
+                          ),
+                          SizedBox(width: AppSize.s4.w),
+                          Marquee(
+                            text: "\$${product.price}",
+                            style: TextStyle(
+                              color:
+                                  Theme.of(context).textTheme.bodyText2!.color,
+                              fontSize: AppSize.s10.sp,
+                              decoration: TextDecoration.lineThrough,
                             ),
-                            SizedBox(width: AppSize.s4.w),
-                            Text(
-                              "\$${product.price}",
-                              style: TextStyle(
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .bodyText2!
-                                    .color,
-                                fontSize: AppSize.s10.sp,
-                                decoration: TextDecoration.lineThrough,
-                              ),
-                            ),
-                          ],
-                        )
-                      : Text(
-                          "\$${product.price}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(color: ColorManager.blue),
-                        ),
+                          ),
+                        ],
+                      ),
+                    )
+                  else
+                    Text(
+                      "\$${product.price}",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(color: ColorManager.blue),
+                    ),
                 ],
               ),
             ),

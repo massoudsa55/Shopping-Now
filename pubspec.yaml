@@ -17,8 +17,6 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.0.0
   equatable: ^2.0.5
-  firebase_auth: ^4.4.2
-  firebase_core: ^2.10.0
   flutter:
     sdk: flutter
   flutter_credit_card: ^3.0.6
@@ -30,6 +28,7 @@ dependencies:
   json_annotation: ^4.8.0
   json_serializable: ^6.1.4
   lottie: ^2.3.2
+  marquee: ^2.2.3
   retrofit: ^4.0.1
   shared_preferences: ^2.1.0
 

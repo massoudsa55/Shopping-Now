@@ -13,8 +13,8 @@ class Skeleton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height,
-      width: width,
+      height: height!.h,
+      width: width!.w,
       padding: const EdgeInsets.all(AppSize.s8),
       decoration: BoxDecoration(
           color: Colors.black.withOpacity(0.04 * layer),
