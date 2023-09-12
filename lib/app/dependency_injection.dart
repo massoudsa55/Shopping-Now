@@ -9,6 +9,7 @@ Future<void> initAppModule() async {
   // app module, its a module where we put all generic dependencies
 
   // shared prefs instance
+  // ignore: unused_local_variable
   final sharedPrefs = await SharedPreferences.getInstance();
   // app prefs instance
   instance
