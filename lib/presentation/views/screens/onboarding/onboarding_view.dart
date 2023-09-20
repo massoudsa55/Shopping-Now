@@ -22,12 +22,12 @@ class OnBoarding extends StatefulWidget {
 class _OnBoardingState extends State<OnBoarding> {
   // final FirebaseAuth _auth = FirebaseAuth.instance;
   final PageController _pageController = PageController();
-  final OnBoardingViewModel _viewModel = OnBoardingViewModel();
+  final OnBoardingViewModel viewModel = OnBoardingViewModel();
   // final AppPreferences _appPreferences = instance<AppPreferences>();
 
   _startOnBoardingViewModel() {
     // _appPreferences.setOnBoardingScreenViewed();
-    _viewModel.start();
+    viewModel.start();
   }
 
   @override
@@ -38,7 +38,7 @@ class _OnBoardingState extends State<OnBoarding> {
 
   @override
   void dispose() {
-    _viewModel.dispose();
+    viewModel.dispose();
     _pageController.dispose();
     super.dispose();
   }
@@ -46,7 +46,7 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<SliderViewObject>(
-      stream: _viewModel.outputsOnBoardingModel,
+      stream: viewModel.outputsOnBoardingModel,
       builder: (context, snapshot) => getOnBoardingScreen(snapshot.data),
     );
   }
@@ -72,7 +72,7 @@ class _OnBoardingState extends State<OnBoarding> {
             controller: _pageController,
             itemCount: sliderViewObject.numOfSlides,
             onPageChanged: (index) {
-              _viewModel.onPageChanged(index);
+              viewModel.onPageChanged(index);
             },
             itemBuilder: (context, index) => OnBoardingPage(
                 onBoardingModel: sliderViewObject.onBoardingModel),
@@ -105,7 +105,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     height: context.height * 0.06,
                     child: ElevatedButton(
                       onPressed: () {
-                        _pageController.animateToPage(_viewModel.next(context),
+                        _pageController.animateToPage(viewModel.next(context),
                             duration: onboardingDuration,
                             curve: onboardingCurve);
                       },

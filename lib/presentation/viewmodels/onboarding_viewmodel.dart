@@ -21,7 +21,7 @@ abstract class OnBoardingViewModelOutputs {
 class OnBoardingViewModel extends BaseViewModel
     with OnBoardingViewModelInputs, OnBoardingViewModelOutputs {
   late final List<OnBoardingModel> _list;
-  late final StreamController<SliderViewObject> _streamController =
+  final StreamController<SliderViewObject> _streamController =
       StreamController<SliderViewObject>();
   int _currentIndex = 0;
 
@@ -36,7 +36,9 @@ class OnBoardingViewModel extends BaseViewModel
 
   @override
   Stream<SliderViewObject> get outputsOnBoardingModel =>
-      _streamController.stream.map((onBoardingModel) => onBoardingModel);
+      _streamController.stream
+          .map((onBoardingModel) => onBoardingModel)
+          .asBroadcastStream();
 
   @override
   int next(BuildContext context) {
@@ -55,8 +57,8 @@ class OnBoardingViewModel extends BaseViewModel
   }
 
   @override
-  void dispose() {
-    _streamController.close();
+  void dispose() async {
+    Future.delayed(Duration.zero, () async => await _streamController.close());
   }
 
   // onboarding private functions
