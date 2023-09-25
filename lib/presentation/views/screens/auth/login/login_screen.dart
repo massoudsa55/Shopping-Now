@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     duration: const Duration(milliseconds: 800),
                     child: Text(
                       "Welcome back!",
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
                   const SizedBox(height: AppSize.s10),
