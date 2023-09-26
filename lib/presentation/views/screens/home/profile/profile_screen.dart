@@ -20,6 +20,7 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // title of his name, email and picture
               ListTile(
                 leading: CircleAvatar(
                     child: NetworkImageWithLoader(demoProfileModel.urlPicture)),
@@ -34,6 +35,7 @@ class ProfileScreen extends StatelessWidget {
                 trailing: const Icon(Icons.arrow_forward_ios),
               ),
               const SizedBox(height: AppSize.s16),
+              // this card for upgrade to pro
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: AppSize.s20),
                 height: 150.h,
@@ -43,46 +45,84 @@ class ProfileScreen extends StatelessWidget {
                         BorderRadius.all(Radius.circular(AppSize.s12))),
                 child: SvgPicture.asset(ImageAssets.onBoardingLogo1),
               ),
-              const CustomListProfil(
+              CustomListProfil(
                 title: "Acount",
                 childern: [
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Orders"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Orders",
+                    onTap: () {},
+                  ),
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Returns"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Returns",
+                    onTap: () {},
+                  ),
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Wishlist"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Wishlist",
+                    onTap: () {},
+                  ),
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Address"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Address",
+                    onTap: () {},
+                  ),
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Payment"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Payment",
+                    onTap: () {},
+                  ),
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Wallte"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Wallte",
+                    onTap: () {},
+                  ),
                 ],
               ),
-              const CustomListProfil(
+              CustomListProfil(
                 title: "Personalistation",
                 childern: [
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Notification"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Notification",
+                    onTap: () {},
+                  ),
                   ListAcountGlobal(
-                      leading: Icons.list_alt_rounded, title: "Preferences"),
+                    leading: Icons.list_alt_rounded,
+                    title: "Preferences",
+                    onTap: () {},
+                  ),
                 ],
               ),
-              const CustomListProfil(
+              CustomListProfil(
                 title: "Settings",
                 childern: [
-                  ListAcountGlobal(leading: Icons.translate, title: "Language"),
                   ListAcountGlobal(
-                      leading: Icons.location_on_outlined, title: "Location"),
+                    leading: Icons.translate,
+                    title: "Language",
+                    onTap: () {},
+                  ),
+                  ListAcountGlobal(
+                    leading: Icons.location_on_outlined,
+                    title: "Location",
+                    onTap: () {},
+                  ),
                 ],
               ),
-              const CustomListProfil(
+              CustomListProfil(
                 title: "Help & Support",
                 childern: [
                   ListAcountGlobal(
-                      leading: Icons.headphones, title: "Get Help"),
-                  ListAcountGlobal(leading: Icons.help_outline, title: "FAQ"),
+                    leading: Icons.headphones,
+                    title: "Get Help",
+                    onTap: () {},
+                  ),
+                  ListAcountGlobal(
+                    leading: Icons.help_outline,
+                    title: "FAQ",
+                    onTap: () {},
+                  ),
                 ],
               ),
             ],
@@ -124,20 +164,27 @@ class ListAcountGlobal extends StatelessWidget {
     super.key,
     required this.title,
     required this.leading,
+    required this.onTap,
   });
+
   final String title;
   final IconData leading;
+  final VoidCallback onTap;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          leading: Icon(leading),
-          title: Text(title, style: Theme.of(context).textTheme.titleLarge),
-          trailing: const Icon(Icons.arrow_forward_ios, size: AppSize.s18),
-        ),
-        const Divider(height: AppSize.s3),
-      ],
+    return InkWell(
+      onTap: onTap,
+      child: Column(
+        children: [
+          ListTile(
+            leading: Icon(leading),
+            title: Text(title, style: Theme.of(context).textTheme.titleLarge),
+            trailing: const Icon(Icons.arrow_forward_ios, size: AppSize.s18),
+          ),
+          const Divider(height: AppSize.s3),
+        ],
+      ),
     );
   }
 }
