@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:shopping_now/presentation/views/widgets/home/network_image_with_loader.dart';
 
 import '../../../../../app/resources/assets/image_assets.dart';
 import '../../../../../app/resources/colors/color_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../../../domain/models/profile_model.dart';
+import '../../../widgets/home/network_image_with_loader.dart';
 import '../../../widgets/home/title_of_items.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -21,29 +21,73 @@ class ProfileScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // title of his name, email and picture
-              ListTile(
-                leading: CircleAvatar(
-                    child: NetworkImageWithLoader(demoProfileModel.urlPicture)),
-                title: Text(
-                  demoProfileModel.fullNam,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(fontSize: AppSize.s18.sp),
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  leading: CircleAvatar(
+                      child:
+                          NetworkImageWithLoader(demoProfileModel.urlPicture)),
+                  title: Text(
+                    demoProfileModel.fullNam,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(fontSize: AppSize.s18.sp),
+                  ),
+                  subtitle: Text(demoProfileModel.email),
+                  trailing: const Icon(Icons.arrow_forward_ios),
                 ),
-                subtitle: Text(demoProfileModel.email),
-                trailing: const Icon(Icons.arrow_forward_ios),
               ),
               const SizedBox(height: AppSize.s16),
               // this card for upgrade to pro
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: AppSize.s20),
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.s20),
                 height: 150.h,
-                decoration: const BoxDecoration(
-                    color: ColorManager.colorB58D67,
+                decoration: BoxDecoration(
+                    color: ColorManager.cardBgColor.withOpacity(0.4),
                     borderRadius:
-                        BorderRadius.all(Radius.circular(AppSize.s12))),
-                child: SvgPicture.asset(ImageAssets.onBoardingLogo1),
+                        const BorderRadius.all(Radius.circular(AppSize.s12))),
+                child: Stack(
+                  alignment: Alignment.centerLeft,
+                  children: [
+                    SvgPicture.asset(ImageAssets.onBoardingLogo1),
+                    // Container(
+                    //   color: ColorManager.black.withOpacity(0.3)
+                    // ),
+                    Positioned(
+                        bottom: 120,
+                        child: Text(
+                          "Start Plan",
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(color: ColorManager.green),
+                        )),
+                    Positioned(
+                      bottom: 100,
+                      child: Text(
+                        "All features unlocked!",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 30,
+                      child: TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          backgroundColor: ColorManager.white,
+                        ),
+                        child: const Text(
+                          "Upgrade",
+                          style: TextStyle(
+                              color: ColorManager.green,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               CustomListProfil(
                 title: "Acount",
