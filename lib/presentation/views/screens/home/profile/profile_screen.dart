@@ -72,7 +72,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: 30,
+                      bottom: 20,
                       child: TextButton(
                         onPressed: () {},
                         style: TextButton.styleFrom(
