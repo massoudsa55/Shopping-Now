@@ -20,7 +20,7 @@ class TitleOfItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: Theme.of(context).textTheme.subtitle1!.copyWith(
+      style: Theme.of(context).textTheme.titleMedium!.copyWith(
             color: fontColor == Colors.grey ? ColorManager.grey : fontColor,
             fontSize: fontSize,
             fontWeight: fontWeight,

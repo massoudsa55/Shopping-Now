@@ -62,7 +62,7 @@ AppBar buildAppBar(BuildContext context, String categoryName) {
           //  category.svg
           //  dot.svg
           height: 24,
-          color: Theme.of(context).textTheme.bodyText1!.color,
+          color: Theme.of(context).textTheme.bodyLarge!.color,
         ),
       ),
     ],

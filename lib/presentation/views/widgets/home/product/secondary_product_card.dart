@@ -76,7 +76,7 @@ class SecondaryProductCard extends StatelessWidget {
                     brandName.toUpperCase(),
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText2!
+                        .bodyMedium!
                         .copyWith(fontSize: 10),
                   ),
                   const SizedBox(height: AppSize.s16 / 2),
@@ -86,7 +86,7 @@ class SecondaryProductCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
                         .textTheme
-                        .subtitle2!
+                        .titleSmall!
                         .copyWith(fontSize: 12),
                   ),
                   const Spacer(),
@@ -107,7 +107,7 @@ class SecondaryProductCard extends StatelessWidget {
                               style: TextStyle(
                                 color: Theme.of(context)
                                     .textTheme
-                                    .bodyText2!
+                                    .bodyMedium!
                                     .color,
                                 fontSize: 10,
                                 decoration: TextDecoration.lineThrough,

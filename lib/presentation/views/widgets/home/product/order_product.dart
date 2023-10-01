@@ -80,7 +80,7 @@ class OrderCard extends StatelessWidget {
                                   style: TextStyle(
                                     color: Theme.of(context)
                                         .textTheme
-                                        .bodyText2!
+                                        .bodyMedium!
                                         .color,
                                     fontSize: AppSize.s10,
                                     decoration: TextDecoration.lineThrough,

@@ -111,7 +111,7 @@ class CategoryBtn extends StatelessWidget {
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   color: isActive
                       ? Colors.white
-                      : Theme.of(context).textTheme.bodyText1!.color),
+                      : Theme.of(context).textTheme.bodyLarge!.color),
             ),
           ],
         ),

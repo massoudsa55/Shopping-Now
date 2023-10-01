@@ -50,7 +50,7 @@ class CartButton extends StatelessWidget {
                             "\$${price.toStringAsFixed(2)}",
                             style: Theme.of(context)
                                 .textTheme
-                                .subtitle2!
+                                .titleSmall!
                                 .copyWith(color: Colors.white),
                           ),
                           Text(
@@ -73,7 +73,7 @@ class CartButton extends StatelessWidget {
                         title,
                         style: Theme.of(context)
                             .textTheme
-                            .subtitle2!
+                            .titleSmall!
                             .copyWith(color: Colors.white),
                       ),
                     ),

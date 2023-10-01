@@ -99,7 +99,7 @@ class ProductCard extends StatelessWidget {
                             text: "\$${product.price}",
                             style: TextStyle(
                               color:
-                                  Theme.of(context).textTheme.bodyText2!.color,
+                                  Theme.of(context).textTheme.bodyMedium!.color,
                               fontSize: AppSize.s10.sp,
                               decoration: TextDecoration.lineThrough,
                             ),

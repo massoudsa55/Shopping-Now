@@ -13,9 +13,9 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
-          children: const [
+          children: [
             FilterFormField(),
           ],
         ),
@@ -46,7 +46,7 @@ class SearchScreen extends StatelessWidget {
             icon: SvgPicture.asset(
               IconAssets.close,
               height: 24.h,
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ),
         ),

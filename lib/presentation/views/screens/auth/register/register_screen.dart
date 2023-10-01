@@ -48,7 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     duration: const Duration(milliseconds: 800),
                     child: Text(
                       "Let's get started!",
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
                   const SizedBox(height: AppSize.s10),

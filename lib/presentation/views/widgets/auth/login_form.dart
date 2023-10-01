@@ -37,7 +37,7 @@ class LogInForm extends StatelessWidget {
                   width: 22.w,
                   color: Theme.of(context)
                       .textTheme
-                      .bodyText1!
+                      .bodyLarge!
                       .color!
                       .withOpacity(0.3),
                 ),
@@ -61,7 +61,7 @@ class LogInForm extends StatelessWidget {
                   width: 22.w,
                   color: Theme.of(context)
                       .textTheme
-                      .bodyText1!
+                      .bodyLarge!
                       .color!
                       .withOpacity(0.3),
                 ),

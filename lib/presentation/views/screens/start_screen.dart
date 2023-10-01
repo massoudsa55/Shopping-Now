@@ -140,7 +140,7 @@ class StartScreenState extends State<StartScreen> {
           icon: SvgPicture.asset(
             IconAssets.search,
             height: 24.h,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
         IconButton(
@@ -148,7 +148,7 @@ class StartScreenState extends State<StartScreen> {
           icon: SvgPicture.asset(
             IconAssets.notification,
             height: 24.h,
-            color: Theme.of(context).textTheme.bodyText1!.color,
+            color: Theme.of(context).textTheme.bodyLarge!.color,
           ),
         ),
       ],

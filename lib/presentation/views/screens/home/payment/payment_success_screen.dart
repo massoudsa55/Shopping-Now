@@ -41,7 +41,7 @@ class PaymentSuccessScreen extends StatelessWidget {
               //  category.svg
               //  dot.svg
               height: 24,
-              color: Theme.of(context).textTheme.bodyText1!.color,
+              color: Theme.of(context).textTheme.bodyLarge!.color,
             ),
           ),
         ],
