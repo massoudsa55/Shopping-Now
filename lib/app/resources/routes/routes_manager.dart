@@ -12,4 +12,5 @@ class AppRoutes {
   static const String categoryOfDiscoverScreenRoute =
       '/categoryOfDiscoverScreen';
   static const String searchScreenRoute = '/searchScreen';
+  static const String detailsProfileRoute = '/detailsProfile';
 }

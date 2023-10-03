@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:shopping_now/app/extensions.dart';
 
 import '../../../../../app/resources/assets/image_assets.dart';
 import '../../../../../app/resources/colors/color_manager.dart';
+import '../../../../../app/resources/routes/routes_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../../../domain/models/profile_model.dart';
 import '../../../widgets/home/network_image_with_loader.dart';
@@ -22,7 +24,9 @@ class ProfileScreen extends StatelessWidget {
             children: [
               // title of his name, email and picture
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(AppRoutes.detailsProfileRoute);
+                },
                 child: ListTile(
                   leading: CircleAvatar(
                       child:
@@ -51,24 +55,32 @@ class ProfileScreen extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.centerLeft,
                   children: [
-                    SvgPicture.asset(ImageAssets.onBoardingLogo1),
+                    SvgPicture.asset(
+                      ImageAssets.onBoardingLogo4,
+                      alignment: Alignment.centerRight,
+                    ),
                     // Container(
                     //   color: ColorManager.black.withOpacity(0.3)
                     // ),
                     Positioned(
-                        bottom: 120,
+                        top: 20,
                         child: Text(
                           "Start Plan",
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall!
-                              .copyWith(color: ColorManager.green),
+                              .copyWith(
+                                  // color: ColorManager.error,
+                                  fontWeight: FontWeight.bold),
                         )),
                     Positioned(
-                      bottom: 100,
+                      top: 50,
                       child: Text(
                         "All features unlocked!",
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
                     Positioned(

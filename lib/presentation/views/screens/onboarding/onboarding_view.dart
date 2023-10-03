@@ -90,8 +90,8 @@ class _OnBoardingState extends State<OnBoarding> {
                         padding:
                             const EdgeInsets.symmetric(horizontal: AppSize.s4),
                         child: DotIndicator(
-                          activeHeight: AppSize.s16,
-                          inActiveHeight: AppSize.s6,
+                          activeHeight: AppSize.s6,
+                          inActiveHeight: AppSize.s16,
                           width: AppSize.s6,
                           isActive:
                               index == sliderViewObject.currentIndex.toDouble(),
