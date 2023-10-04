@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shopping_now/app/extensions.dart';
 
 import '../../../../../app/resources/colors/color_manager.dart';
+import '../../../../../app/resources/routes/routes_manager.dart';
 import '../../../../../app/resources/values/app_size.dart';
 import '../../../../../domain/models/profile_model.dart';
 import '../../../widgets/home/network_image_with_loader.dart';
@@ -31,9 +33,7 @@ class DetailsProfile extends StatelessWidget {
                   ),
                   subtitle: Text(demoProfileModel.email),
                 ),
-                const SizedBox(
-                  height: AppSize.s40,
-                ),
+                const SizedBox(height: AppSize.s40),
                 const ProfileInformation(
                     title: "FullName", body: "Messaoud Benkouider"),
                 const ProfileInformation(
@@ -72,7 +72,9 @@ class DetailsProfile extends StatelessWidget {
           child: Align(
             alignment: Alignment.centerLeft,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(AppRoutes.detailsProfileRoute);
+              },
               child: Text(
                 "Edit",
                 overflow: TextOverflow.ellipsis,
